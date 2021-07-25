@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rt7-gH-jfN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Nne-hY-ZL9">
+            <objects>
+                <navigationController id="rt7-gH-jfN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kdq-f9-drC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JAC-SK-u0e" kind="relationship" relationship="rootViewController" id="NtJ-nq-FJL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPN-Y8-ZS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1023" y="157"/>
+        </scene>
+        <!--RegistVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="RegistVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jZO-tL-wLc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-530" y="-518"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Ass-ci-2zG">
+            <objects>
+                <collectionViewController id="JAC-SK-u0e" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H6r-dg-H61">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ALA-nn-6gV">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="50" height="50"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ckI-1a-RKY">
+                                <rect key="frame" x="0.0" y="50" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aBt-8N-gVD">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EYT-un-jNI">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gOS-W0-8Z1">
+                            <rect key="frame" x="0.0" y="178" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="JAC-SK-u0e" id="YMj-7a-Hk6"/>
+                            <outlet property="delegate" destination="JAC-SK-u0e" id="cij-Eg-MeX"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Home" id="jFx-F8-ukV"/>
+                    <connections>
+                        <segue destination="yBO-YX-f42" kind="show" id="QqG-mz-vSs"/>
+                        <segue destination="Ux3-pY-aQN" kind="show" id="Fxy-Bv-1bR"/>
+                        <segue destination="282-qr-zho" kind="show" id="9jU-eA-R9H"/>
+                        <segue destination="9pN-iH-nQ8" kind="show" id="OBo-cm-WUb"/>
+                        <segue destination="3BY-OQ-Jce" kind="show" id="4E7-f0-WaO"/>
+                        <segue destination="bgh-xu-STg" kind="show" id="YyV-YJ-kMx"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uww-lU-L5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-213" y="157"/>
+        </scene>
+        <!--ChatMsgStoryboard-->
+        <scene sceneID="ccW-dd-vqA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatMsgStoryboard" id="yBO-YX-f42" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="032-YD-ekp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aR8-4o-meT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="511" y="-167"/>
+        </scene>
+        <!--CustomerServiceStoryboard-->
+        <scene sceneID="HKc-MW-3jw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CustomerServiceStoryboard" id="Ux3-pY-aQN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pFm-2W-XE3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQc-w1-eBL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="675" y="-62"/>
+        </scene>
+        <!--HouseOwnerStoryboard-->
+        <scene sceneID="rGB-f8-kiP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HouseOwnerStoryboard" id="282-qr-zho" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0Wa-vi-Yxq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DoV-0b-39k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="669" y="44"/>
+        </scene>
+        <!--MemberStoryboard-->
+        <scene sceneID="qiN-Qe-oSf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MemberStoryboard" id="9pN-iH-nQ8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GLb-x1-31M"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eY9-Pc-5qS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="690" y="193"/>
+        </scene>
+        <!--PostStoryboard-->
+        <scene sceneID="Ye0-An-7Nj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PostStoryboard" id="3BY-OQ-Jce" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="DYB-rn-Vh9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cd2-AI-o73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588" y="298"/>
+        </scene>
+        <!--PublishStoryboard-->
+        <scene sceneID="fQb-BY-ai6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PublishStoryboard" id="bgh-xu-STg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rYC-6M-NCg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOp-b5-yqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536" y="416"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
