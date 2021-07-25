@@ -52,6 +52,8 @@
 		B68FC36B26AD2357001141D5 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FC36A26AD2357001141D5 /* MemberCell.swift */; };
 		B68FC36F26AD2973001141D5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FC36E26AD2973001141D5 /* HomeVC.swift */; };
 		B68FC37126AD29D9001141D5 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FC37026AD29D9001141D5 /* Menu.swift */; };
+		B68FC37626AD77E4001141D5 /* MemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FC37526AD77E4001141D5 /* MemberListVC.swift */; };
+		B68FC37826AD7CFE001141D5 /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B68FC37726AD7CFD001141D5 /* noimage.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		B68FC36A26AD2357001141D5 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		B68FC36E26AD2973001141D5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B68FC37026AD29D9001141D5 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		B68FC37526AD77E4001141D5 /* MemberListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListVC.swift; sourceTree = "<group>"; };
+		B68FC37726AD7CFD001141D5 /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 			children = (
 				443066F526AD1ADE00E918B2 /* SignInVC.swift */,
 				B68FC36E26AD2973001141D5 /* HomeVC.swift */,
+				B68FC37526AD77E4001141D5 /* MemberListVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				B68FC35A26AD226D001141D5 /* commoncheck.png */,
+				B68FC37726AD7CFD001141D5 /* noimage.jpg */,
 				B68FC35326AD226C001141D5 /* customerresp.png */,
 				B68FC35926AD226D001141D5 /* else.png */,
 				B68FC35626AD226C001141D5 /* landlordcheck.png */,
@@ -300,6 +306,7 @@
 				B68FC35F26AD226D001141D5 /* landlordcheck.png in Resources */,
 				443066EB26AD181B00E918B2 /* MemberStoryboard.storyboard in Resources */,
 				B68FC35C26AD226D001141D5 /* customerresp.png in Resources */,
+				B68FC37826AD7CFE001141D5 /* noimage.jpg in Resources */,
 				B68FC36126AD226D001141D5 /* postcheck.png in Resources */,
 				443066F426AD1A1C00E918B2 /* OtherFunctionStoryboard.storyboard in Resources */,
 				443066E926AD17FD00E918B2 /* PublishStoryboard.storyboard in Resources */,
@@ -324,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68FC37626AD77E4001141D5 /* MemberListVC.swift in Sources */,
 				4430670A26AD48AF00E918B2 /* ChatRoom.swift in Sources */,
 				443066FA26AD3F7E00E918B2 /* Report.swift in Sources */,
 				B68FC36926AD2350001141D5 /* MenuCell.swift in Sources */,
