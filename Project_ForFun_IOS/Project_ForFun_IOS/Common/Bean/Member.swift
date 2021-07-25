@@ -1,0 +1,22 @@
+import Foundation
+struct Member:Codable{
+    var memberId:Int
+    var role:Int
+    var nameL:String
+    var nameF:String
+    var phone:Int
+    var headshot:String
+    var gender:Int
+    var id:String
+    var birthday:Date?
+    var address:String
+    var mail:String
+    var type:Int
+    var token:String?
+    var idImgf:String
+    var idImgb:String
+    var citizen:String?
+    var creatTime:Date?
+    var updateTime:Date?
+    var deleteTime:Date?
+}
