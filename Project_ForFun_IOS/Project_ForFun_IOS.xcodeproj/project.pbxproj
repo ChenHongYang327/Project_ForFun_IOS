@@ -101,6 +101,8 @@
 		443066E226AD02DC00E918B2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				443066F826AD271400E918B2 /* Image */,
+				443066F726AD26FE00E918B2 /* Bean */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -126,6 +128,20 @@
 				443066F326AD1A1C00E918B2 /* OtherFunctionStoryboard.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		443066F726AD26FE00E918B2 /* Bean */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bean;
+			sourceTree = "<group>";
+		};
+		443066F826AD271400E918B2 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
