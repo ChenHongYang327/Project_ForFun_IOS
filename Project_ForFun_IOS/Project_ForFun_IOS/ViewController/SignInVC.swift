@@ -85,9 +85,10 @@ class SignInVC: UIViewController {
         var requestParam = [String:Any]()
         requestParam["action"] = "rootSingIn"
         requestParam["phone"] = Int(tfPhone.text!)
-        
         executeTask(url!, requestParam) { data, resp, error in
+            //錯誤
             if(error != nil){
+                logOut()
                 print(error!)
                 return
             }
@@ -104,17 +105,20 @@ class SignInVC: UIViewController {
                             }
                         }
                     else if(result["pass"]!==1){
+                        logOut()
                         DispatchQueue.main.async {
                         showSimpleAlert(message: "非管理者權限", viewController: self)
                         }
                     }
                     else if(result["pass"]!==2){
+                        logOut()
                         DispatchQueue.main.async {
                         showSimpleAlert(message: "電話號碼尚未註冊", viewController: self)
                         }
                     }
                     }
                 catch {
+                    logOut()
                     print(error)
                 }
             }

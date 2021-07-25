@@ -56,11 +56,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         else if(menu.name=="登出"){
             let controller = UIAlertController(title: nil, message: "是否確定要登出?", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
-                guard let _ = try? Auth.auth().signOut()
-                else {
-                    print("登出錯誤")
-                    return
-                }
+                logOut()
                 let signIn = self.storyboard?.instantiateViewController(identifier: "signIn")
                 self.view.window?.rootViewController = signIn
             }
