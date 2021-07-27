@@ -41,6 +41,7 @@
 		4430670826AD47F400E918B2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430670726AD47F400E918B2 /* Comment.swift */; };
 		4430670A26AD48AF00E918B2 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430670926AD48AF00E918B2 /* ChatRoom.swift */; };
 		4430670C26AD494C00E918B2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430670B26AD494C00E918B2 /* Message.swift */; };
+		B67AB90E26AEFCF1001DA93E /* MemberDatailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */; };
 		B68FC35126AD220A001141D5 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FC35026AD220A001141D5 /* Common.swift */; };
 		B68FC35C26AD226D001141D5 /* customerresp.png in Resources */ = {isa = PBXBuildFile; fileRef = B68FC35326AD226C001141D5 /* customerresp.png */; };
 		B68FC35D26AD226D001141D5 /* memberstatus.png in Resources */ = {isa = PBXBuildFile; fileRef = B68FC35426AD226C001141D5 /* memberstatus.png */; };
@@ -92,6 +93,7 @@
 		4430670726AD47F400E918B2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		4430670926AD48AF00E918B2 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		4430670B26AD494C00E918B2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDatailVC.swift; sourceTree = "<group>"; };
 		B68FC35026AD220A001141D5 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B68FC35326AD226C001141D5 /* customerresp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customerresp.png; sourceTree = "<group>"; };
 		B68FC35426AD226C001141D5 /* memberstatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = memberstatus.png; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */,
 				0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */,
 				B68FC37526AD77E4001141D5 /* MemberListVC.swift */,
+				B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				B68FC37626AD77E4001141D5 /* MemberListVC.swift in Sources */,
 				4430670A26AD48AF00E918B2 /* ChatRoom.swift in Sources */,
 				443066FA26AD3F7E00E918B2 /* Report.swift in Sources */,
+				B67AB90E26AEFCF1001DA93E /* MemberDatailVC.swift in Sources */,
 				B68FC36926AD2350001141D5 /* MenuCell.swift in Sources */,
 				4430670426AD459E00E918B2 /* Order.swift in Sources */,
 				443066F626AD1ADE00E918B2 /* SignInVC.swift in Sources */,

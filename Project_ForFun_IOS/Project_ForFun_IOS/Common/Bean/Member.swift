@@ -16,30 +16,32 @@ struct Member:Codable{
     var idImgf:String
     var idImgb:String
     var citizen:String?
-    var creatTime:Date?
+    var createTime:Date
     var updateTime:Date?
     var deleteTime:Date?
-    
-    public init(_ memberId:Int,_ role:Int, _ nameL:String, _ nameF:String, _ phone:Int, _ headshot:String, _ gender:Int,_ id:String, _ birthday:Date?, _ address:String, _ mail:String, _ type:Int, _ token:String?, _ idImgf:String, _ idImgb:String,_ citizen:String?, _ creatTime:Date?, _ updateTime:Date?, _ deleteTime:Date?){
-        self.memberId = memberId
-        self.role = role
-        self.nameL = nameL
-        self.nameF = nameF
-        self.phone = phone
-        self.headshot = headshot
-        self.gender = gender
-        self.id = id
-        self.birthday = birthday
-        self.address = address
-        self.mail = mail
-        self.type = type
-        self.token = token
-        self.idImgf = idImgf
-        self.idImgb = idImgb
-        self.citizen = citizen
-        self.creatTime = creatTime
-        self.updateTime = updateTime
-        self.deleteTime = deleteTime
-        
+    //時間轉字串
+    var createTimeStr: String {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return format.string(from: createTime)
     }
+    var updateTimeStr: String {
+        if updateTime != nil {
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            return format.string(from: updateTime!)
+        } else {
+            return ""
+        }
+    }
+    var deleteTimeStr: String {
+        if deleteTime != nil {
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            return format.string(from: deleteTime!)
+        } else {
+            return ""
+        }
+    }
+    
 }
