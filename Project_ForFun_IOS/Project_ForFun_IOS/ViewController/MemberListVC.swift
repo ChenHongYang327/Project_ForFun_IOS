@@ -14,30 +14,27 @@ class MemberListVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title="會員列表"
-        getAllMember()
+    }
+    //返回刷新
+    override func viewWillAppear(_ animated: Bool) {
+       getAllMember()
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+       
         return members.count
     }
 
-
+    //設定資料
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let member=members[indexPath.row]
         //客製化需強制轉型
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath) as! MemberCell
-//        cell.ivMemberCell.image
         cell.nameMemberCell.text=member.nameL+member.nameF
         cell.phoneMemberCell.text="0\(member.phone)"
         cell.ivMemberCell.image = UIImage(named: "noimage")
+
         //從FireStore下載圖片
         let imageRef = Storage.storage().reference().child(member.headshot)
         // 設定最大可下載10M
@@ -49,56 +46,26 @@ class MemberListVC: UITableViewController {
                 print(error != nil ? error!.localizedDescription : "Downloading error!")
             }
         }
-        // Configure the cell...
-
         return cell
     }
  
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    //資料被選取時呼叫
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //指定storyboard(當前的可不寫)
+    let storyboard = UIStoryboard(name: "MemberStoryboard", bundle: nil)
+    //取得頁面
+    let memberDetailVC = storyboard.instantiateViewController(withIdentifier: "memberDetailVC") as! MemberDatailVC
+        let member=members[indexPath.row]
+        //將值指定給下頁
+        memberDetailVC.member=member
+        //將前一頁的data(頭貼)帶到下一頁減少抓圖次數
+        let cell=tableView.cellForRow(at: indexPath) as! MemberCell
+        memberDetailVC.data=cell.ivMemberCell.image?.jpegData(compressionQuality: CGFloat(100))
+        //跳轉
+        self.navigationController?.pushViewController(memberDetailVC, animated: true)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    //取得所有用戶資料
     func  getAllMember() {
         let url = URL(string: common_url + "adminMemberController")
         var requestParam = [String:Any]()
@@ -114,7 +81,7 @@ class MemberListVC: UITableViewController {
                 return
             }
             if let data = data{
-//                print(String(data: data, encoding: .utf8)!)
+                print(String(data: data, encoding: .utf8)!)
                 do {
                     let result = try decoder.decode([Member].self, from: data)
                         self.members = result
@@ -131,4 +98,5 @@ class MemberListVC: UITableViewController {
         }
     }
 }
+    
 }

@@ -89,14 +89,24 @@ class SignInVC: UIViewController {
             //錯誤
             if(error != nil){
                 logOut()
+                DispatchQueue.main.async {
+                showSimpleAlert(message: "請先檢查與伺服器的連線狀態", viewController: self)
+                }
                 print(error!)
                 return
             }
+            if let httpResponse = resp as? HTTPURLResponse {
+                print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
+                if(httpResponse.statusCode != 200){
+                    DispatchQueue.main.async {
+                    showSimpleAlert(message: "請嘗試將伺服器重新啟動", viewController: self)
+                    }
+                }
+               }
             if let data = data{
                 do {
                     let result = try JSONDecoder().decode([String:Int].self, from: data)
                     if (result["pass"]!==0){
-                            print(result["pass"]!)
                             DispatchQueue.main.async {
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 //成功驗證跳轉首頁
@@ -126,6 +136,7 @@ class SignInVC: UIViewController {
         }
     }
     
+
     /*
     // MARK: - Navigation
 
