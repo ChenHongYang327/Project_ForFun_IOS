@@ -55,11 +55,11 @@ class CityAreaUtil {
                         }
                     }
 
-                    for value in self.areaMap.values {
-                        for area in value {
-                            print("cityId : \(area.cityId) ___  areaID : \(area.areaId) ___ areaName : \(area.areaName)")
-                        }
-                    }
+//                    for value in self.areaMap.values {
+//                        for area in value {
+//                            print("cityId : \(area.cityId) ___  areaID : \(area.areaId) ___ areaName : \(area.areaName)")
+//                        }
+//                    }
                 } catch {
                     print(error)
                 }

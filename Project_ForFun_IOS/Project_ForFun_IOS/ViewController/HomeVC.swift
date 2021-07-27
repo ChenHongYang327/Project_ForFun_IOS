@@ -70,6 +70,10 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             present(controller, animated: true, completion: nil)
 
            
+        } else if (menu.name == "刊登表審核") {
+            let publishStoryboard = UIStoryboard(name: "PublishStoryboard", bundle: nil)
+            let publishListTVC = publishStoryboard.instantiateViewController(identifier: "publishListTVC") as! PublishListTVC
+            self.navigationController?.pushViewController(publishListTVC, animated: true)
         }
     }
     
