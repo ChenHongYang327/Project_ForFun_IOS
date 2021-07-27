@@ -50,7 +50,7 @@ class PublishListTVC: UITableViewController {
         var cityName = ""
         for city in cityList {
             if (city.cityId == publishList[indexPath.row].cityId) {
-                cityName = city.cityName
+                cityName = city.cityName!
                 break
             }
         }
@@ -59,18 +59,18 @@ class PublishListTVC: UITableViewController {
         var areaName = ""
         for area in areaList {
             if (area.areaId == publishList[indexPath.row].areaId) {
-                areaName = area.areaName
+                areaName = area.areaName!
                 break
             }
         }
 //        print("\(cityName)\(areaName)")
         cell.publishName.text = publishList[indexPath.row].title
         cell.publishArea.text = "\(cityName)\(areaName)"
-        cell.publishSquare.text = "\(publishList[indexPath.row].square)坪"
-        cell.publishRent.text = "\(publishList[indexPath.row].rent)/月"
+        cell.publishSquare.text = "\(publishList[indexPath.row].square!)坪"
+        cell.publishRent.text = "\(publishList[indexPath.row].rent!)/月"
 
         // 處理圖片
-        downloadImage(path: publishList[indexPath.row].titleImg) { data, error in
+        downloadImage(path: publishList[indexPath.row].titleImg!) { data, error in
             if let data = data {
                 cell.publishImage.image = UIImage(data: data)
             } else {

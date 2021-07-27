@@ -1,16 +1,17 @@
-//
-//  City.swift
-//  Project_ForFun_IOS
-//
-//  Created by 姜宗暐 on 2021/7/25.
-//
-
 import Foundation
 
-class City : Codable {
-    var cityId: Int;
-    var cityName: String;
-    var createTime: Date;
-    var updateTime: Date?;
-    var deleteTime: Date?;
+struct City:Codable {
+    var cityId: Int
+    var cityName: String?
+    var createTime: Date?
+    var updateTime: Date?
+    var deleteTime: Date?
+    
+    public init( _ cityId: Int,_ cityName: String?,_ createTime: Date?,_ updateTime: Date?,_ deleteTime: Date?){
+        self.cityId = cityId
+        self.cityName = cityName
+        self.createTime = createTime
+        self.updateTime = updateTime
+        self.deleteTime = deleteTime
+    }
 }

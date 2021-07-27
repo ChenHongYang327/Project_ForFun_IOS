@@ -1,17 +1,19 @@
-//
-//  Area.swift
-//  Project_ForFun_IOS
-//
-//  Created by 姜宗暐 on 2021/7/25.
-//
-
 import Foundation
 
-class Area : Codable {
-    var areaId: Int;
-    var cityId: Int;
-    var areaName: String;
-    var createTime: Date;
-    var updateTime: Date?;
-    var deleteTime: Date?;
+struct Area: Codable {
+    var areaId: Int
+    var cityId: Int?
+    var areaName: String?
+    var createTime: Date?
+    var updateTime: Date?
+    var deleteTime: Date?
+    
+    public init( _ areaId: Int,_ cityId: Int?,_ areaName: String?,_ createTime: Date?,_ updateTime: Date?,_ deleteTime: Date?){
+        self.areaId = areaId
+        self.cityId = cityId
+        self.areaName = areaName
+        self.createTime = createTime
+        self.updateTime = updateTime
+        self.deleteTime = deleteTime
+    }
 }

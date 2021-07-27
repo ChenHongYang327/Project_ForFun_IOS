@@ -45,13 +45,13 @@ class CityAreaUtil {
                     
                     // 資料整理
                     for area in self.areaList {
-                        if (self.areaMap[area.cityId] == nil) {
+                        if (self.areaMap[area.cityId!] == nil) {
                             var areaList = [Area]()
                             areaList.append(area)
                             
-                            self.areaMap[area.cityId] = areaList
+                            self.areaMap[area.cityId!] = areaList
                         } else {
-                            self.areaMap[area.cityId]?.append(area)
+                            self.areaMap[area.cityId!]?.append(area)
                         }
                     }
 
