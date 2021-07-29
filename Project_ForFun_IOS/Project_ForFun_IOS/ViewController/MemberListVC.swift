@@ -81,7 +81,8 @@ class MemberListVC: UITableViewController {
                 return
             }
             if let data = data{
-                print(String(data: data, encoding: .utf8)!)
+                //顯示傳進來的資料
+//                print(String(data: data, encoding: .utf8)!)
                 do {
                     let result = try decoder.decode([Member].self, from: data)
                         self.members = result

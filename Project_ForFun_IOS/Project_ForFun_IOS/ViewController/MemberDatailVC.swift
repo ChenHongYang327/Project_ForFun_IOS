@@ -10,10 +10,11 @@ import FirebaseStorage
 
 class MemberDatailVC: UIViewController {
     var member:Member!
-//    var updateMember:Member!
     var data:Data?
+    var updateResp=false
     var types=[String]()
     var roles=[String]()
+    var roleIsSelect=false //判斷點選哪一個
     @IBOutlet weak var ivHeadshot: UIImageView!
     @IBOutlet weak var lbId: UILabel!
     @IBOutlet weak var lbName: UILabel!
@@ -23,15 +24,14 @@ class MemberDatailVC: UIViewController {
     @IBOutlet weak var lbType: UILabel!
     @IBOutlet weak var lbCreatTime: UILabel!
     @IBOutlet weak var tfPhone: UITextField!
-    @IBOutlet weak var rolePicker: UIPickerView!
-    @IBOutlet weak var typePicker: UIPickerView!
+    @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var btRole: UIButton!
     @IBOutlet weak var btType: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        updateMember=member
         self.title="會員資訊"
+        ivHeadshot.isUserInteractionEnabled = true
         tfPhone.isHidden=true
         //開啟編輯按鈕
         navigationItem.rightBarButtonItem = editButtonItem
@@ -58,8 +58,26 @@ class MemberDatailVC: UIViewController {
         setData()
         setTypePicker()
         setRolePicker()
-        
     }
+    //座標移動會重複呼叫(未完成)
+    @IBAction func picLongPress(_ sender: UILongPressGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            ivHeadshot.transform = CGAffineTransform(scaleX: 2, y: 2)
+//            ivHeadshot.center=self.view.center
+//            ivHeadshot.frame.origin
+//            ivHeadshot.frame.origin.y=UIScreen.main.bounds.width/2
+        case .ended:
+            ivHeadshot.transform = CGAffineTransform(scaleX: 1, y: 1)
+        default:
+            break
+        }
+    }
+    
+    
+    
+    
+    
     //覆寫編輯按鈕
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
@@ -74,23 +92,46 @@ class MemberDatailVC: UIViewController {
         }
         //點擊完成
         else{
-            editButtonItem.title="編輯"
-            guard let phone=tfPhone.text?.trimmingCharacters(in: .whitespaces) else{
+            guard let inputPhone=tfPhone.text?.trimmingCharacters(in: .whitespacesAndNewlines) else{
                 showSimpleAlert(message: "電話號碼不可為空", viewController: self)
+                editButtonItem.title="完成"
                 return
             }
-            if(phone.isEmpty){
+            if(inputPhone.isEmpty){
                 showSimpleAlert(message: "電話號碼不可為空", viewController: self)
+                editButtonItem.title="完成"
                 return
             }
-            else if(phone.count != 10){
+            else if(inputPhone.count != 10){
                 showSimpleAlert(message: "電話號碼格式錯誤", viewController: self)
+                editButtonItem.title="完成"
                 return
             }
-        lbPhone.text="電話:\(phone)"
-        tfPhone.isHidden=true
-        btRole.isEnabled=false
-        btType.isEnabled=false
+        let phone = Int(inputPhone) ?? -1
+        if(phone == -1){
+        showSimpleAlert(message: "電話號碼格式錯誤", viewController: self)
+         }
+        member.phone=phone
+        sendReq { updateState in
+                if(updateState){
+                    DispatchQueue.main.async {
+                    //恢復顯示
+                    self.editButtonItem.title="編輯"
+                    self.tfPhone.isHidden=true
+                    self.btRole.isEnabled=false
+                    self.btType.isEnabled=false
+                    self.picker.isHidden=true
+                    self.lbPhone.text="電話:0\(self.member.phone)"
+                    }
+                }
+                else{
+                    DispatchQueue.main.async {
+                    self.editButtonItem.title="完成"
+                    }
+                }
+                
+            }
+        
         }
 
     }
@@ -100,7 +141,7 @@ class MemberDatailVC: UIViewController {
         lbName.text="姓名:\(member.nameL+member.nameF)"
         lbGender.text="性別:\(member.gender==1 ?"男":"女")"
         lbPhone.text="電話:0\(member.phone)"
-        lbCreatTime.text="註冊時間:\n\(member.createTimeStr)"
+        lbCreatTime.text="註冊時間:\n\(member.createTime)"
         lbRole.text="帳號權限:"
         lbType.text="帳號狀態:"
         switch member.role {
@@ -123,20 +164,89 @@ class MemberDatailVC: UIViewController {
         }
         
     }
+    //修改會員資料
+    func sendReq(completionHandler:@escaping (Bool)->Void){
+        let url = URL(string: common_url + "adminMemberController")
+        var requestParam = [String:Any]()
+        requestParam["action"] = "updateMember"
+        //將物件轉換成JSON格式
+        requestParam["member"] = try? String(data: JSONEncoder().encode(member), encoding: .utf8)
+//        print("轉成JSON後的格式\(requestParam["member"]!)")
+        executeTask(url!, requestParam) { data, resp, error in
+            //錯誤
+            if let error = error{
+                logOut()
+                DispatchQueue.main.async {
+                showSimpleAlert(message: "請先檢查與伺服器的連線狀態", viewController: self)
+                }
+                print(error)
+                return
+            }
+            if let httpResponse = resp as? HTTPURLResponse {
+                print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
+                if(httpResponse.statusCode != 200){
+                    DispatchQueue.main.async {
+                    showSimpleAlert(message: "請嘗試將伺服器重新啟動", viewController: self)
+                    }
+                }
+               }
+            if let data = data{
+                do {
+                    let result = try JSONDecoder().decode([String:Int].self, from: data)
+                    if (result["pass"]==0){
+                        completionHandler(true)
+                            DispatchQueue.main.async {
+                                showSimpleAlert(message: "更新成功", viewController: self)
+                                }
+                        }
+                    else if(result["pass"]==1){
+                        completionHandler(false)
+                        DispatchQueue.main.async {
+                        showSimpleAlert(message: "更新失敗", viewController: self)
+                        self.editButtonItem.title="編輯"
+                            self.setEditing(true, animated: true)
+                        }
+                    }
+                    else if(result["pass"]==2){
+                        completionHandler(false)
+                        DispatchQueue.main.async {
+                        showSimpleAlert(message: "電話號碼已被使用", viewController: self)
+                        self.editButtonItem.title="編輯"
+                            self.setEditing(true, animated: true)
+                        }
+                    }
+                    else if(result["pass"]==3){
+                        completionHandler(true)
+                            DispatchQueue.main.async {
+                                showSimpleAlert(message: "資料無變更", viewController: self)
+                                }
+                    }
+                    else{
+                    completionHandler(false)
+                    }
+                    }
+                catch {
+                    print(error)
+                }
+            }
+        }
+    }
     
-
     
     @IBAction func showRole(_ sender: Any) {
-        rolePicker.selectRow(member.role, inComponent: 0, animated: false)
-        typePicker.isHidden=true
-        rolePicker.isHidden=false
+        roleIsSelect=true
+        picker.reloadAllComponents() //刷新picker
+        picker.selectRow(member.role, inComponent: 0, animated: false)//選取預設
+        picker.isHidden=false//顯示
     }
     
     @IBAction func showType(_ sender: Any) {
-        typePicker.selectRow(member.type, inComponent: 0, animated: false)
-        typePicker.isHidden=false
-        rolePicker.isHidden=true
+        roleIsSelect=false
+        picker.reloadAllComponents()  //刷新picker
+        picker.selectRow(member.type, inComponent: 0, animated: false)//選取預設
+        picker.isHidden=false//顯示
     }
+    
     
    
 }
@@ -159,44 +269,37 @@ extension MemberDatailVC: UIPickerViewDataSource,UIPickerViewDelegate{
     }
     /* 產生picker view時會自動呼叫此方法以取得選項數 */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch pickerView {
-        case rolePicker:
+        switch roleIsSelect {
+        case true:
             return  roles.count
-        case typePicker:
+        case false:
             return  types.count
-        default:
-            return 0
    
         }
     }
     /* picker view顯示時會自動呼叫此方法以取得欲顯示的選項名稱 */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView {
-        case rolePicker:
+        switch roleIsSelect {
+        case true:
             return  roles[row]
-        case typePicker:
+        case false:
             return  types[row]
-        default:
-            return ""
         }
     }
     
     // 選中時呼叫
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView {
-        case rolePicker:
-            rolePicker.isHidden=true
+        switch roleIsSelect {
+        case true:
+            picker.isHidden=true
             member.role=row
             btRole.setTitle(roles[row], for: UIControl.State.normal)
-//            print("原始權限\(member.role)")
-//            print("更新後權限\(updateMember.role)")
-        case typePicker:
-            typePicker.isHidden=true
+            roleIsSelect=false
+        case false:
+            picker.isHidden=true
             member.type=row
             btType.setTitle(types[row], for:UIControl.State.normal)
-//            print("原始權限\(member.type)")
-//            print("更新後權限\(updateMember.type)")
-        default: break
+            roleIsSelect=false
           
         }
         

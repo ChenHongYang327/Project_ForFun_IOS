@@ -35,3 +35,13 @@ func logOut(){
         return
 }
 }
+func showAlert(message: String, viewController: UIViewController,completionHandler:@escaping ()->Void) {
+let controller = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "確定", style: .default) { UIAlertAction in
+        completionHandler()//按下確定要執行的動作
+    }
+let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+controller.addAction(okAction)
+controller.addAction(cancelAction)
+viewController.present(controller, animated: true, completion: nil)
+}

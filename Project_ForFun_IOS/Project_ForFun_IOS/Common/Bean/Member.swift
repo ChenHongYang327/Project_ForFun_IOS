@@ -16,32 +16,32 @@ struct Member:Codable{
     var idImgf:String
     var idImgb:String
     var citizen:String?
-    var createTime:Date
-    var updateTime:Date?
-    var deleteTime:Date?
+    var createTime:String
+    var updateTime:String?
+    var deleteTime:String?
     //時間轉字串
-    var createTimeStr: String {
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return format.string(from: createTime)
-    }
-    var updateTimeStr: String {
-        if updateTime != nil {
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            return format.string(from: updateTime!)
-        } else {
-            return ""
-        }
-    }
-    var deleteTimeStr: String {
-        if deleteTime != nil {
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            return format.string(from: deleteTime!)
-        } else {
-            return ""
-        }
-    }
+//    var createTimeStr: String {
+//        let format = DateFormatter()
+//        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        return format.string(from: createTime)
+//    }
+//    var updateTimeStr: String {
+//        if updateTime != nil {
+//            let format = DateFormatter()
+//            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//            return format.string(from: updateTime!)
+//        } else {
+//            return ""
+//        }
+//    }
+//    var deleteTimeStr: String {
+//        if deleteTime != nil {
+//            let format = DateFormatter()
+//            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//            return format.string(from: deleteTime!)
+//        } else {
+//            return ""
+//        }
+//    }
     
 }
