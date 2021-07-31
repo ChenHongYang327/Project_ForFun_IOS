@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseStorage
 
 class MemberDatailVC: UIViewController {
     var member:Member!
@@ -27,6 +26,8 @@ class MemberDatailVC: UIViewController {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var btRole: UIButton!
     @IBOutlet weak var btType: UIButton!
+    @IBOutlet var selectView: UIView!
+    @IBOutlet weak var selectNote: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +41,11 @@ class MemberDatailVC: UIViewController {
                 ivHeadshot.image=UIImage(data: data!)
             }
             //防止圖片未載入完成就點選就再抓一次圖
-            else if(data == nil||ivHeadshot.image==UIImage(named: "noimage")){
+            else if(data == nil||ivHeadshot.image==UIImage(named: "noimage.jpg")){
 //                print("圖片未載入完成")
                 //從FireStore下載圖片
-                let imageRef = Storage.storage().reference().child(member.headshot)
-                // 設定最大可下載10M
-                imageRef.getData(maxSize: 10 * 1024 * 1024) { (data, error) in
-                    if let imageData = data {
-                        self.ivHeadshot.image = UIImage(data: imageData)
-                    } else {
-                        self.ivHeadshot.image = UIImage(named: "noimage")
-                        print(error != nil ? error!.localizedDescription : "Downloading error!")
-                    }
+                getImage(url: member.headshot) { data in
+                    self.ivHeadshot.image=UIImage(data: data!)
                 }
             }
         
@@ -59,6 +53,35 @@ class MemberDatailVC: UIViewController {
         setTypePicker()
         setRolePicker()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addKeyboardObserver() //初始化鍵盤監聽
+        self.view.addSubview(selectView)//將子view加入
+        selectView.translatesAutoresizingMaskIntoConstraints=false//關閉AutoResize避免排版問題
+        selectView.heightAnchor.constraint(equalToConstant: 150).isActive=true//設定高度並執行
+        selectView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10).isActive=true //view的左邊x軸座標此view的x軸座標
+        selectView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive=true //view的右邊x軸座標此view的x軸座標
+        let toHide=selectView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 150)
+        //設定與高同數值用來隱藏此view
+        toHide.identifier = "bottom"
+        toHide.isActive=true
+//        selectView.layer.cornerRadius = 10 //圓角
+        
+        
+        
+        
+        super.viewWillAppear(true)
+    }
+    //呼叫此方法按下return即可隱藏鍵盤
+    @IBAction func didEndOnExit(_ sender: Any) {
+    }
+    
+    //背景點擊監聽點擊背景隱藏鍵盤
+    @IBAction func touchDown(_ sender: Any) {
+        //停止textfield的Focus(?)
+        tfPhone.resignFirstResponder()
+    }
+    
     //座標移動會重複呼叫(未完成)
     @IBAction func picLongPress(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
@@ -82,6 +105,8 @@ class MemberDatailVC: UIViewController {
         super.setEditing(editing, animated: animated)
         //點擊編輯
         if(editing==true){
+        //停止textfield的Focus(?)
+        tfPhone.resignFirstResponder()
         editButtonItem.title="完成"
         tfPhone.isHidden=false
         lbPhone.text="電話:"
@@ -91,6 +116,8 @@ class MemberDatailVC: UIViewController {
         }
         //點擊完成
         else{
+            //停止textfield的Focus(?)
+            tfPhone.resignFirstResponder()
             guard let inputPhone=tfPhone.text?.trimmingCharacters(in: .whitespacesAndNewlines) else{
                 showSimpleAlert(message: "電話號碼不可為空", viewController: self)
                 editButtonItem.title="完成"
@@ -122,7 +149,13 @@ class MemberDatailVC: UIViewController {
                     self.tfPhone.isHidden=true
                     self.btRole.isEnabled=false
                     self.btType.isEnabled=false
-                    self.picker.isHidden=true
+                    //將view歸位
+                    for toHide in self.view.constraints{
+                     if toHide.identifier == "bottom"{
+                        toHide.constant = 150
+                        break
+                        }
+                    }
                     self.lbPhone.text="電話:0\(self.member.phone)"
                     }
                 }
@@ -232,21 +265,51 @@ class MemberDatailVC: UIViewController {
             }
         }
     }
+
+    @IBAction func showCancel(_ sender: Any) {
+        //將view歸位
+        for toHide in view.constraints{
+            if toHide.identifier == "bottom"{
+                toHide.constant = 150
+                break
+            }
+        }
+    }
+    
     
     
     @IBAction func showRole(_ sender: Any) {
+        //停止textfield的Focus(?)
+        tfPhone.resignFirstResponder()
+        selectNote.text="請選擇變更後的帳號權限:"
         roleIsSelect=true
         picker.reloadAllComponents() //刷新picker
         picker.selectRow(member.role, inComponent: 0, animated: false)//選取預設
-        picker.isHidden=false//顯示
+        for toHide in view.constraints{
+            if toHide.identifier == "bottom"{
+                toHide.constant = -5 //顯示view的底部間距
+                break
+            }
+        }
+//        picker.isHidden=false//顯示
     }
     
     @IBAction func showType(_ sender: Any) {
+        //停止textfield的Focus(?)
+        tfPhone.resignFirstResponder()
+        selectNote.text="請選擇變更後的帳號狀態:"
         roleIsSelect=false
         picker.reloadAllComponents()  //刷新picker
         picker.selectRow(member.type, inComponent: 0, animated: false)//選取預設
-        picker.isHidden=false//顯示
+        for toHide in view.constraints{
+            if toHide.identifier == "bottom"{
+                toHide.constant = -5
+                break
+            }
+        }
+//        picker.isHidden=false//顯示
     }
+    
     
     
    
@@ -292,15 +355,27 @@ extension MemberDatailVC: UIPickerViewDataSource,UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch roleIsSelect {
         case true:
-            picker.isHidden=true
             member.role=row
             btRole.setTitle(roles[row], for: UIControl.State.normal)
             roleIsSelect=false
+            //將view歸位
+            for toHide in view.constraints{
+                if toHide.identifier == "bottom"{
+                    toHide.constant = 150
+                    break
+                }
+            }
         case false:
-            picker.isHidden=true
             member.type=row
             btType.setTitle(types[row], for:UIControl.State.normal)
             roleIsSelect=false
+            //將view歸位
+            for toHide in view.constraints{
+                if toHide.identifier == "bottom"{
+                    toHide.constant = 150
+                    break
+                }
+            }
           
         }
         
@@ -309,15 +384,51 @@ extension MemberDatailVC: UIPickerViewDataSource,UIPickerViewDelegate{
     
 }
 extension MemberDatailVC: UITextFieldDelegate {
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        picker.isHidden=true
-//
-//    }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        picker.isHidden=true
+        
+        //第一次點擊輸入時隱藏view
+        for toHide in view.constraints{
+            if toHide.identifier == "bottom"{
+                toHide.constant = 150
+                break
+            }
+        }
         return true
     }
   
+}
+//鍵盤事件處理
+extension MemberDatailVC{
+    //定義方法增加監聽來處理特定事件
+        func addKeyboardObserver() {
+            //監聽鍵盤顯示
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+            //監聽鍵盤隱藏
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+        
+        @objc func keyboardWillShow(notification: Notification) {
+            // 能取得鍵盤高度就讓view上移鍵盤高度，否則上移view的1/3高度
+            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let keyboardRect = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRect.height
+                view.frame.origin.y = -keyboardHeight
+            } else {
+                view.frame.origin.y = -view.frame.height / 3
+            }
+        }
+        
+        @objc func keyboardWillHide(notification: Notification) {
+            view.frame.origin.y = 0 //歸位
+        }
+        //當頁面消失時移除監聽(減少資源消耗)
+        override func viewDidDisappear(_ animated: Bool) {
+            super.viewDidDisappear(true)
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+
 }
 
 

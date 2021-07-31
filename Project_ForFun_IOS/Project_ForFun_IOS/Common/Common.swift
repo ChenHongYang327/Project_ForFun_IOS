@@ -56,7 +56,7 @@ func  getImage(url:String,completionHandler: @escaping (Data?)-> Void) {
             completionHandler(data)
         } else {
             //沒取到圖片時失敗回傳
-            completionHandler(UIImage(named: "noimage")?.jpegData(compressionQuality: 100))
+            completionHandler(UIImage(named: "noimage.jpg")!.jpegData(compressionQuality: 100))
             print(error != nil ? error!.localizedDescription : "Downloading error!")
         }
     }

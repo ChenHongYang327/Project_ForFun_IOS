@@ -26,6 +26,7 @@ class HouseOwnerDetailVC: UIViewController {
     @IBOutlet weak var ivGoodPeople: UIImageView!
     @IBOutlet weak var btPass: UIButton!
     @IBOutlet weak var btNopass: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if data != nil{
@@ -84,42 +85,18 @@ class HouseOwnerDetailVC: UIViewController {
     }
     @IBAction func pass(_ sender: Any) {
         member.role=2
-        sendReq { result in
-            if(result){
-                DispatchQueue.main.async {
-                showSimpleAlert(message: "更新成功", viewController: self)
-                    self.btPass.isEnabled=false
-                    self.btNopass.isEnabled=false
-                }
-            }
-            else{
-                DispatchQueue.main.async {
-                showSimpleAlert(message: "更新失敗", viewController: self)
-                }
-            }
-        }
+        sendReq()
+        btPass.setTitleColor(.black, for: .normal)
         
     }
     @IBAction func noPass(_ sender: Any) {
         member.role=1
         member.citizen=nil
-        sendReq { result in
-            if(result){
-                DispatchQueue.main.async {
-                showSimpleAlert(message: "更新成功", viewController: self)
-                    self.btPass.isEnabled=false
-                    self.btNopass.isEnabled=false
-                }
-            }
-            else{
-                DispatchQueue.main.async {
-                showSimpleAlert(message: "更新失敗", viewController: self)
-                }
-            }
-        }
+        sendReq()
+        btNopass.setTitleColor(.black, for: .normal)
     }
    
-    func sendReq(completionHandler:@escaping (Bool)->Void){
+    func sendReq(){
         let url = URL(string: common_url + "adminMemberController")
         var requestParam = [String:Any]()
         requestParam["action"] = "applyMemberResult"
@@ -129,7 +106,6 @@ class HouseOwnerDetailVC: UIViewController {
         executeTask(url!, requestParam) { data, resp, error in
             //錯誤
             if let error = error{
-                logOut()
                 DispatchQueue.main.async {
                 showSimpleAlert(message: "請先檢查與伺服器的連線狀態", viewController: self)
                 }
@@ -149,12 +125,19 @@ class HouseOwnerDetailVC: UIViewController {
                     let result = try JSONDecoder().decode([String:Bool].self, from: data)
                     //更新成功
                     if (result["result"]!){
-                        completionHandler(true)
+                            DispatchQueue.main.async {
+                            showSimpleAlert(message: "更新成功", viewController: self)
+                                self.btPass.isEnabled=false
+                                self.btNopass.isEnabled=false
+                        }
                     }
                     else{
-                        completionHandler(false)
+                        DispatchQueue.main.async {
+                        showSimpleAlert(message: "更新失敗", viewController: self)
                     }
-                } catch  {
+                    }
+                }
+                catch  {
                     print(error)
                 }
           
