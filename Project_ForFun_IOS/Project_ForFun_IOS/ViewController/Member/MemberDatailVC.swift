@@ -77,7 +77,6 @@ class MemberDatailVC: UIViewController {
     
     
     
-    
     //覆寫編輯按鈕
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
@@ -95,23 +94,26 @@ class MemberDatailVC: UIViewController {
             guard let inputPhone=tfPhone.text?.trimmingCharacters(in: .whitespacesAndNewlines) else{
                 showSimpleAlert(message: "電話號碼不可為空", viewController: self)
                 editButtonItem.title="完成"
+                setEditing(true, animated: false) //會重新呼叫setEditing
                 return
             }
             if(inputPhone.isEmpty){
                 showSimpleAlert(message: "電話號碼不可為空", viewController: self)
                 editButtonItem.title="完成"
+                setEditing(true, animated: false) //會重新呼叫setEditing
                 return
             }
             else if(inputPhone.count != 10){
                 showSimpleAlert(message: "電話號碼格式錯誤", viewController: self)
                 editButtonItem.title="完成"
+                setEditing(true, animated: false) //會重新呼叫setEditing
                 return
             }
         let phone = Int(inputPhone) ?? -1
         if(phone == -1){
         showSimpleAlert(message: "電話號碼格式錯誤", viewController: self)
          }
-        member.phone=phone
+        member.phone=phone //設定新的電話
         sendReq { updateState in
                 if(updateState){
                     DispatchQueue.main.async {
@@ -175,7 +177,6 @@ class MemberDatailVC: UIViewController {
         executeTask(url!, requestParam) { data, resp, error in
             //錯誤
             if let error = error{
-                logOut()
                 DispatchQueue.main.async {
                 showSimpleAlert(message: "請先檢查與伺服器的連線狀態", viewController: self)
                 }
@@ -307,4 +308,16 @@ extension MemberDatailVC: UIPickerViewDataSource,UIPickerViewDelegate{
     }
     
 }
+extension MemberDatailVC: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        picker.isHidden=true
+//
+//    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        picker.isHidden=true
+        return true
+    }
+  
+}
+
 

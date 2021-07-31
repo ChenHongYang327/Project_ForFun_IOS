@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 
 // 實機
 // let URL_SERVER = "http://192.168.0.101:8080/Spot_MySQL_Web/"
@@ -44,4 +45,19 @@ let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
 controller.addAction(okAction)
 controller.addAction(cancelAction)
 viewController.present(controller, animated: true, completion: nil)
+}
+//從firestore下載圖片(失敗回傳內部圖片)
+func  getImage(url:String,completionHandler: @escaping (Data?)-> Void) {
+    //從FireStore下載圖片
+    let imageRef = Storage.storage().reference().child(url)
+    // 設定最大可下載10M
+    imageRef.getData(maxSize: 10 * 1024 * 1024) { (data, error) in
+        if let data = data {
+            completionHandler(data)
+        } else {
+            //沒取到圖片時失敗回傳
+            completionHandler(UIImage(named: "noimage")?.jpegData(compressionQuality: 100))
+            print(error != nil ? error!.localizedDescription : "Downloading error!")
+        }
+    }
 }

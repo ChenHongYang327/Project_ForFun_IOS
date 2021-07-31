@@ -1,19 +1,19 @@
 //
-//  MemberListVC.swift
+//  HouseOwnerListVC.swift
 //  Project_ForFun_IOS
 //
-//  Created by WEI on 2021/7/25.
+//  Created by WEI on 2021/7/29.
 //
 
 import UIKit
 import FirebaseStorage
 
-class MemberListVC: UITableViewController {
+class HouseOwnerListVC: UITableViewController {
     var members=[Member]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title="會員列表"
+        self.title="房東表審核"
     }
     //返回刷新
     override func viewWillAppear(_ animated: Bool) {
@@ -52,24 +52,24 @@ class MemberListVC: UITableViewController {
     //資料被選取時呼叫
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     //指定storyboard(當前的可不寫)
-    let storyboard = UIStoryboard(name: "MemberStoryboard", bundle: nil)
+    let storyboard = UIStoryboard(name: "HouseOwnerStoryboard", bundle: nil)
     //取得頁面
-    let memberDetailVC = storyboard.instantiateViewController(withIdentifier: "memberDetailVC") as! MemberDatailVC
+    let houseOwnerDetailVC = storyboard.instantiateViewController(withIdentifier: "houseOwnerDetailVC") as! HouseOwnerDetailVC
         let member=members[indexPath.row]
         //將值指定給下頁
-        memberDetailVC.member=member
+        houseOwnerDetailVC.member=member
         //將前一頁的data(頭貼)帶到下一頁減少抓圖次數
         let cell=tableView.cellForRow(at: indexPath) as! MemberCell
-        memberDetailVC.data=cell.ivMemberCell.image?.jpegData(compressionQuality: CGFloat(100))
+        houseOwnerDetailVC.data=cell.ivMemberCell.image?.jpegData(compressionQuality: CGFloat(100))
         //跳轉
-        self.navigationController?.pushViewController(memberDetailVC, animated: true)
+        self.navigationController?.pushViewController( houseOwnerDetailVC, animated: true)
     }
     
     //取得所有用戶資料
     func  getAllMember() {
         let url = URL(string: common_url + "adminMemberController")
         var requestParam = [String:Any]()
-        requestParam["action"] = "getAllMember"
+        requestParam["action"] = "getApplyMember"
         // JSON含有日期時間，解析必須指定日期時間格式
         let decoder = JSONDecoder()
         let format = DateFormatter()
@@ -99,5 +99,5 @@ class MemberListVC: UITableViewController {
         }
     }
 }
-    
+ 
 }

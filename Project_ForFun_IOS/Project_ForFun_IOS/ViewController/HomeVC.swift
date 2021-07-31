@@ -53,8 +53,12 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         //
         if(menu.name=="會員列表"){
         let storyboard = UIStoryboard(name: "MemberStoryboard", bundle: nil)
-        let memberListVC = storyboard.instantiateViewController(withIdentifier: "memberListVC") as! MemberListVC
-        self.navigationController?.pushViewController(memberListVC, animated: true)
+        //沒搜尋
+//      let memberListVC = storyboard.instantiateViewController(withIdentifier: "memberListVC") as! MemberListVC
+//      self.navigationController?.pushViewController(memberListVC, animated: true)
+        //有搜尋
+        let memberSearchListVC = storyboard.instantiateViewController(withIdentifier: "memberSearchListVC") as! MemberSearchListVC
+        self.navigationController?.pushViewController(memberSearchListVC, animated: true)
         }
         //
         else if(menu.name=="登出"){
@@ -74,6 +78,11 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             let publishStoryboard = UIStoryboard(name: "PublishStoryboard", bundle: nil)
             let publishListTVC = publishStoryboard.instantiateViewController(identifier: "publishListTVC") as! PublishListTVC
             self.navigationController?.pushViewController(publishListTVC, animated: true)
+        }
+        else if(menu.name=="房東證審核"){
+        let storyboard = UIStoryboard(name: "HouseOwnerStoryboard", bundle: nil)
+        let houseOwnerListVC = storyboard.instantiateViewController(withIdentifier: "houseOwnerListVC") as! HouseOwnerListVC
+        self.navigationController?.pushViewController(houseOwnerListVC, animated: true)
         }
     }
     
