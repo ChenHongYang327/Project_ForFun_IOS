@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		0A77DA5226ADAD2700849D50 /* CityAreaUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77DA5126ADAD2700849D50 /* CityAreaUtil.swift */; };
 		0A7B0C6126AFB847000C9A5E /* PublishDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */; };
+		0A918CB626B7901800120162 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0A918CB526B7901800120162 /* SDWebImage */; };
+		0A918CB926B7904900120162 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A918CB826B7904900120162 /* SnapKit */; };
+		0A918CBE26B7919F00120162 /* ZPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CBB26B7919F00120162 /* ZPageControl.swift */; };
+		0A918CBF26B7919F00120162 /* ZCycleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CBC26B7919F00120162 /* ZCycleLayout.swift */; };
+		0A918CC026B7919F00120162 /* ZCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CBD26B7919F00120162 /* ZCycleView.swift */; };
+		0A918CC226B79A3100120162 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CC126B79A3100120162 /* CustomCollectionViewCell.swift */; };
+		0A918CC426B7EA2400120162 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CC326B7EA2400120162 /* Gender.swift */; };
+		0A918CC626B7EF5800120162 /* HouseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CC526B7EF5800120162 /* HouseType.swift */; };
 		0AA58E2E26AD568800CCE8A4 /* PublishListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */; };
 		0AEB665426AE935E00F8CB76 /* PublishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB665326AE935E00F8CB76 /* PublishCell.swift */; };
 		443066BF26AD010100E918B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443066BE26AD010100E918B2 /* AppDelegate.swift */; };
@@ -68,6 +76,12 @@
 /* Begin PBXFileReference section */
 		0A77DA5126ADAD2700849D50 /* CityAreaUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAreaUtil.swift; sourceTree = "<group>"; };
 		0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDetailVC.swift; sourceTree = "<group>"; };
+		0A918CBB26B7919F00120162 /* ZPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPageControl.swift; sourceTree = "<group>"; };
+		0A918CBC26B7919F00120162 /* ZCycleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCycleLayout.swift; sourceTree = "<group>"; };
+		0A918CBD26B7919F00120162 /* ZCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCycleView.swift; sourceTree = "<group>"; };
+		0A918CC126B79A3100120162 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		0A918CC326B7EA2400120162 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		0A918CC526B7EF5800120162 /* HouseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseType.swift; sourceTree = "<group>"; };
 		0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishListTVC.swift; sourceTree = "<group>"; };
 		0AEB665326AE935E00F8CB76 /* PublishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCell.swift; sourceTree = "<group>"; };
 		443066BB26AD010100E918B2 /* Project_ForFun_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_ForFun_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,8 +141,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A918CB626B7901800120162 /* SDWebImage in Frameworks */,
 				443066DF26AD024800E918B2 /* FirebaseStorageSwift-Beta in Frameworks */,
 				443066DB26AD024800E918B2 /* FirebaseMessaging in Frameworks */,
+				0A918CB926B7904900120162 /* SnapKit in Frameworks */,
 				443066D726AD024800E918B2 /* FirebaseDatabaseSwift-Beta in Frameworks */,
 				443066D926AD024800E918B2 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				443066DD26AD024800E918B2 /* FirebaseAuth in Frameworks */,
@@ -138,6 +154,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A918CBA26B7919200120162 /* ZCycle */ = {
+			isa = PBXGroup;
+			children = (
+				0A918CBC26B7919F00120162 /* ZCycleLayout.swift */,
+				0A918CBD26B7919F00120162 /* ZCycleView.swift */,
+				0A918CBB26B7919F00120162 /* ZPageControl.swift */,
+			);
+			path = ZCycle;
+			sourceTree = "<group>";
+		};
 		443066B226AD010100E918B2 = {
 			isa = PBXGroup;
 			children = (
@@ -205,8 +231,11 @@
 		B68FC34F26AD21FF001141D5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0A918CBA26B7919200120162 /* ZCycle */,
 				B68FC37226AD2E77001141D5 /* Bean */,
 				B68FC37026AD29D9001141D5 /* Menu.swift */,
+				0A918CC326B7EA2400120162 /* Gender.swift */,
+				0A918CC526B7EF5800120162 /* HouseType.swift */,
 				B68FC35026AD220A001141D5 /* Common.swift */,
 				0A77DA5126ADAD2700849D50 /* CityAreaUtil.swift */,
 			);
@@ -236,6 +265,7 @@
 				B68FC36826AD2350001141D5 /* MenuCell.swift */,
 				B68FC36A26AD2357001141D5 /* MemberCell.swift */,
 				0AEB665326AE935E00F8CB76 /* PublishCell.swift */,
+				0A918CC126B79A3100120162 /* CustomCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -292,6 +322,8 @@
 				443066DA26AD024800E918B2 /* FirebaseMessaging */,
 				443066DC26AD024800E918B2 /* FirebaseAuth */,
 				443066DE26AD024800E918B2 /* FirebaseStorageSwift-Beta */,
+				0A918CB526B7901800120162 /* SDWebImage */,
+				0A918CB826B7904900120162 /* SnapKit */,
 			);
 			productName = Project_ForFun_IOS;
 			productReference = 443066BB26AD010100E918B2 /* Project_ForFun_IOS.app */;
@@ -322,6 +354,8 @@
 			mainGroup = 443066B226AD010100E918B2;
 			packageReferences = (
 				443066D526AD024800E918B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0A918CB426B7901800120162 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				0A918CB726B7904900120162 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 443066BC26AD010100E918B2 /* Products */;
 			projectDirPath = "";
@@ -374,12 +408,14 @@
 				B67AB90E26AEFCF1001DA93E /* MemberDatailVC.swift in Sources */,
 				B68FC36926AD2350001141D5 /* MenuCell.swift in Sources */,
 				4430670426AD459E00E918B2 /* Order.swift in Sources */,
+				0A918CC426B7EA2400120162 /* Gender.swift in Sources */,
 				B6EA91E426B2F3A500D14659 /* MemberSearchListVC.swift in Sources */,
 				443066F626AD1ADE00E918B2 /* SignInVC.swift in Sources */,
 				0AEB665426AE935E00F8CB76 /* PublishCell.swift in Sources */,
 				4430670626AD471900E918B2 /* Post.swift in Sources */,
 				443066FC26AD411800E918B2 /* CustomerService.swift in Sources */,
 				4451FC7F26B00275004C9062 /* ChatMsgListTVC.swift in Sources */,
+				0A918CBE26B7919F00120162 /* ZPageControl.swift in Sources */,
 				443066FE26AD424500E918B2 /* Publish.swift in Sources */,
 				4430670826AD47F400E918B2 /* Comment.swift in Sources */,
 				B68FC36626AD227D001141D5 /* Member.swift in Sources */,
@@ -388,8 +424,12 @@
 				0A77DA5226ADAD2700849D50 /* CityAreaUtil.swift in Sources */,
 				B68FC37126AD29D9001141D5 /* Menu.swift in Sources */,
 				B68FC36B26AD2357001141D5 /* MemberCell.swift in Sources */,
+				0A918CBF26B7919F00120162 /* ZCycleLayout.swift in Sources */,
 				0AA58E2E26AD568800CCE8A4 /* PublishListTVC.swift in Sources */,
+				0A918CC626B7EF5800120162 /* HouseType.swift in Sources */,
+				0A918CC026B7919F00120162 /* ZCycleView.swift in Sources */,
 				4430670226AD44D700E918B2 /* Area.swift in Sources */,
+				0A918CC226B79A3100120162 /* CustomCollectionViewCell.swift in Sources */,
 				B6EA91E226B2ECD600D14659 /* HouseOwnerListVC.swift in Sources */,
 				443066BF26AD010100E918B2 /* AppDelegate.swift in Sources */,
 				443066C126AD010100E918B2 /* SceneDelegate.swift in Sources */,
@@ -599,6 +639,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0A918CB426B7901800120162 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
+		0A918CB726B7904900120162 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		443066D526AD024800E918B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -610,6 +666,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0A918CB526B7901800120162 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A918CB426B7901800120162 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		0A918CB826B7904900120162 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A918CB726B7904900120162 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		443066D626AD024800E918B2 /* FirebaseDatabaseSwift-Beta */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 443066D526AD024800E918B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

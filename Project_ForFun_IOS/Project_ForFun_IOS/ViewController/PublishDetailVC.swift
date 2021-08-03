@@ -6,16 +6,69 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import SDWebImage
+import SnapKit
 
 class PublishDetailVC: UIViewController {
-
+    @IBOutlet weak var publishDetailTitle: UILabel!
+    @IBOutlet weak var publishDetailRent: UILabel!
+    @IBOutlet weak var publishDetailArea: UILabel!
+    @IBOutlet weak var publishDetailSquare: UILabel!
+    @IBOutlet weak var publishDetailGender: UILabel!
+    @IBOutlet weak var publishDetailType: UILabel!
+    @IBOutlet weak var publishDetailDeposit: UILabel!
+    @IBOutlet weak var publishDetailInfo: UITextView!
+    @IBOutlet var furnishedArray: [UILabel]!
+    @IBOutlet weak var publishDetailMap: MKMapView!
+    
+    var locationManager: CLLocationManager!
+    var userLocation: CLLocationCoordinate2D?
+    
+    var cityList = [City]()
+    var areaList = [Area]()
     var publish: Publish?
+    
+    var publishImg = [UIImage]()
+    
+    private lazy var bannerView: ZCycleView = {
+//        let width = view.bounds.width - 20
+        let cycleView1 = ZCycleView()
+        cycleView1.placeholderImage = UIImage(named: "noimage.jpg")
+        cycleView1.scrollDirection = .horizontal
+        cycleView1.delegate = self
+        cycleView1.reloadItemsCount(publishImg.count)
+//        cycleView1.itemZoomScale = 1.2
+        cycleView1.itemSpacing = 10
+        cycleView1.initialIndex = 1
+        cycleView1.isAutomatic = true
+//        cycleView1.isInfinite = false
+        cycleView1.itemSize = CGSize(width: view.bounds.width, height: 200)
+        return cycleView1
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 取得縣市資料
+        cityList = CityAreaUtil.instance.cityList
+        areaList = CityAreaUtil.instance.areaList
+        
         self.title = "刊登詳細"
+        
+        // 定位資訊設定
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 1 // 移動1公尺以上才重新抓位置
+        locationManager.startUpdatingLocation()
+        
+        if let publish = publish {
+            setPublishData(publish: publish)
+            setupMap(publish: publish)
+        }
     }
     
 
@@ -29,4 +82,210 @@ class PublishDetailVC: UIViewController {
     }
     */
 
+    func makeBanner() {
+        if (publishImg.count == 3) {
+//            view.addSubview(bannerView)
+//            bannerView.snp.makeConstraints {
+//                $0.left.equalTo(0)
+////                $0.top.equalTo(100)
+//                $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+//                $0.right.equalTo(0)
+//                $0.height.equalTo(200)
+//            }
+        }
+    }
+    
+    func setPublishData(publish: Publish) {
+        // 抓取刊登圖片做成輪播圖
+        getImage(url: publish.publishImg1!) { data in
+            if let data = data {
+                self.publishImg.append(UIImage(data: data)!)
+                self.makeBanner()
+            }
+        }
+        
+        getImage(url: publish.publishImg2!) { data in
+            if let data = data {
+                self.publishImg.append(UIImage(data: data)!)
+                self.makeBanner()
+            }
+        }
+        
+        getImage(url: publish.publishImg3!) { data in
+            if let data = data {
+                self.publishImg.append(UIImage(data: data)!)
+                self.makeBanner()
+            }
+        }
+        
+        // 取得縣市名稱
+        var cityName = ""
+        for city in cityList {
+            if (city.cityId == publish.cityId) {
+                cityName = city.cityName!
+                break
+            }
+        }
+        
+        // 取得行政區名稱
+        var areaName = ""
+        for area in areaList {
+            if (area.areaId == publish.areaId) {
+                areaName = area.areaName!
+                break
+            }
+        }
+        
+        // 性別限制
+        var gender = ""
+        switch Gender(rawValue: publish.gender!) {
+        case .BOTH:
+            gender = "無限制"
+        case .MALE:
+            gender = "限男性"
+        case .FEMALE:
+            gender = "限女性"
+        default:
+            gender = "資料錯誤"
+        }
+        
+        // 房型
+        var type = ""
+        switch HouseType(rawValue: publish.type!) {
+        case .WITH_BATH:
+            type = "套房"
+        case .NO_BATH:
+            type = "雅房"
+        default:
+            type = "資料錯誤"
+        }
+        
+        publishDetailTitle.text = publish.title
+        publishDetailRent.text = "\(publish.rent!)/月"
+        publishDetailArea.text = "\(cityName)\(areaName)"
+        publishDetailSquare.text = "\(publish.square!)坪"
+        publishDetailGender.text = "\(gender)"
+        publishDetailType.text = "\(type)"
+        publishDetailDeposit.text = "\(publish.deposit!)個月"
+        publishDetailInfo.text = publish.publishInfo
+        
+        let furnished = publish.furnished!.split(separator: "|")
+        
+        for i in 0 ..< furnished.count {
+            furnishedArray[i].isEnabled = "1" == furnished[i]
+        }
+    }
+    
+    func setupMap(publish: Publish) {
+        publishDetailMap.delegate = self
+        
+        // 設定地圖顯示範圍
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        var region = MKCoordinateRegion()
+        region.span = span
+        
+        publishDetailMap.setRegion(region, animated: true)
+        publishDetailMap.regionThatFits(region)
+        publishDetailMap.mapType = .standard
+
+        // 設定房屋位置
+        let houseLocation = CLLocationCoordinate2D(latitude: publish.latitude, longitude: publish.longitude)
+        publishDetailMap.setCenter(houseLocation, animated: true)
+        
+        // 上標記
+        let marker = MKPointAnnotation()
+        marker.coordinate = houseLocation
+        publishDetailMap.addAnnotation(marker)
+    }
+    
+    func goNavigation(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) {
+        // 建立MKPlacemark
+        let markStart = MKPlacemark(coordinate: start)
+        let markEnd = MKPlacemark(coordinate: end)
+        
+        // 建立MKMapItem
+        let mapItemStart = MKMapItem(placemark: markStart)
+        let mapItemEnd = MKMapItem(placemark: markEnd)
+        mapItemStart.name = "起點"
+        mapItemEnd.name = "目的地"
+        
+        // 設定導航模式(開車)
+        let option = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        MKMapItem.openMaps(with: [mapItemStart, mapItemEnd], launchOptions: option)
+    }
+    
+    @IBAction func clickDelete(_ sender: Any) {
+        showAlert(message: "是否確定刪除？", viewController: self) {
+            print("刪了")
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @IBAction func clickMap(_ gesture: UITapGestureRecognizer) {
+        if (gesture.state == .ended) {
+            // 點擊地圖進行導航
+            if let userLocation = userLocation {
+                let houseLocation = CLLocationCoordinate2D(latitude: publish!.latitude, longitude: publish!.longitude)
+                goNavigation(start: userLocation, end: houseLocation)
+            }
+            
+        }
+    }
+}
+
+// 圖片輪播
+extension PublishDetailVC: ZCycleViewProtocol {
+    func cycleViewRegisterCellClasses() -> [String: AnyClass] {
+        return ["CustomCollectionViewCell": CustomCollectionViewCell.self]
+    }
+
+    func cycleViewConfigureCell(collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, realIndex: Int) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
+        cell.imageView.image = publishImg[realIndex]
+        return cell
+    }
+    
+    func cycleViewDidScrollToIndex(_ cycleView: ZCycleView, index: Int) {
+        
+    }
+    
+    func cycleViewConfigurePageControl(_ cycleView: ZCycleView, pageControl: ZPageControl) {
+        pageControl.isHidden = false
+        pageControl.currentPageIndicatorTintColor = .red
+        pageControl.pageIndicatorTintColor = .green
+        pageControl.frame = CGRect(x: 0, y: cycleView.bounds.height-25, width: cycleView.bounds.width, height: 25)
+    }
+}
+
+// 使用者定位
+extension PublishDetailVC: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            // 記錄使用者位置
+            userLocation = location.coordinate
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+// 自訂地圖標記
+extension PublishDetailVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // 取得重複使用的圖標
+        let identifier = "marker"
+        var marker = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        if (marker == nil) {
+            marker = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        
+        // 圖標設定
+        marker?.pinTintColor = .red
+        marker?.animatesDrop = true
+        marker?.canShowCallout = false
+        
+        return marker
+    }
 }

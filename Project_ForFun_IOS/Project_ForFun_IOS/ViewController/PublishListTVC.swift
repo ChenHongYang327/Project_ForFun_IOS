@@ -70,14 +70,20 @@ class PublishListTVC: UITableViewController {
         cell.publishRent.text = "\(publishList[indexPath.row].rent!)/月"
 
         // 處理圖片
-        downloadImage(path: publishList[indexPath.row].titleImg!) { data, error in
+        cell.publishImage.image = UIImage(named: "noimage.jpg")
+        getImage(url: publishList[indexPath.row].titleImg!) { data in
             if let data = data {
                 cell.publishImage.image = UIImage(data: data)
-            } else {
-                cell.publishImage.image = UIImage(named: "noimage")
-                print(error != nil ? error!.localizedDescription : "下載失敗")
             }
         }
+//        downloadImage(path: publishList[indexPath.row].titleImg!) { data, error in
+//            if let data = data {
+//                cell.publishImage.image = UIImage(data: data)
+//            } else {
+//                cell.publishImage.image = UIImage(named: "noimage")
+//                print(error != nil ? error!.localizedDescription : "下載失敗")
+//            }
+//        }
 
         return cell
     }
