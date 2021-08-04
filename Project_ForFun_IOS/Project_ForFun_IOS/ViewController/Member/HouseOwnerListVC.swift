@@ -13,7 +13,7 @@ class HouseOwnerListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title="房東表審核"
+        self.title="房東證審核"
     }
     //返回刷新
     override func viewWillAppear(_ animated: Bool) {

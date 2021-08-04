@@ -84,6 +84,11 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let houseOwnerListVC = storyboard.instantiateViewController(withIdentifier: "houseOwnerListVC") as! HouseOwnerListVC
         self.navigationController?.pushViewController(houseOwnerListVC, animated: true)
         }
+        else if(menu.name=="留言審核"){
+        let storyboard = UIStoryboard(name: "ChatMsgStoryboard", bundle: nil)
+        let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "ChatMsgListTVC") as! ChatMsgListTVC
+        self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
+        }
     }
     
     func loadMenu()->[Menu]{
