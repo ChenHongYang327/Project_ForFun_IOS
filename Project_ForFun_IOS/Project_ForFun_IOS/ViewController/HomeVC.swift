@@ -32,16 +32,25 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         homeMenus=loadMenu()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell=collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.gray
+    }
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell=collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.lightGray
+    }
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return homeMenus.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        self.collectionView.delaysContentTouches = false;
         let menu = homeMenus[indexPath.row]
         let cellId = "menuCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenuCell
-        cell.contentView.backgroundColor = UIColor.gray
         cell.imageView.image = menu.image
         cell.label.text = menu.name
         return cell
@@ -83,6 +92,11 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let storyboard = UIStoryboard(name: "HouseOwnerStoryboard", bundle: nil)
         let houseOwnerListVC = storyboard.instantiateViewController(withIdentifier: "houseOwnerListVC") as! HouseOwnerListVC
         self.navigationController?.pushViewController(houseOwnerListVC, animated: true)
+        }
+        else if(menu.name=="留言審核"){
+        let storyboard = UIStoryboard(name: "ChatMsgStoryboard", bundle: nil)
+        let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "ChatMsgListTVC") as! ChatMsgListTVC
+        self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
         }
     }
     
