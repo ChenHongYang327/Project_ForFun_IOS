@@ -32,16 +32,25 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         homeMenus=loadMenu()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell=collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.gray
+    }
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell=collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.lightGray
+    }
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return homeMenus.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        self.collectionView.delaysContentTouches = false;
         let menu = homeMenus[indexPath.row]
         let cellId = "menuCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenuCell
-        cell.contentView.backgroundColor = UIColor.gray
         cell.imageView.image = menu.image
         cell.label.text = menu.name
         return cell

@@ -126,6 +126,7 @@
                                         <constraint firstAttribute="bottom" secondItem="dDV-BQ-bOE" secondAttribute="bottom" constant="24" id="tSY-bU-rGZ"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="imageView" destination="dDV-BQ-bOE" id="tf5-Cq-k9f"/>
                                     <outlet property="label" destination="jcV-6J-1sO" id="mN7-Ha-RxP"/>

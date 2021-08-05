@@ -82,16 +82,30 @@ class MemberDatailVC: UIViewController {
         tfPhone.resignFirstResponder()
     }
     
-    //座標移動會重複呼叫(未完成)
+    //長按放大圖片
     @IBAction func picLongPress(_ sender: UILongPressGestureRecognizer) {
+        //座標偏移量
+        let y = (UIScreen.main.bounds.height*0.5 - ivHeadshot.bounds.height) * 0.5
+        //元件的比例
+        let scale = UIScreen.main.bounds.width / ivHeadshot.bounds.width
         switch sender.state {
         case .began:
-            ivHeadshot.transform = CGAffineTransform(scaleX: 2, y: 2)
-//            ivHeadshot.center=self.view.center
-//            ivHeadshot.frame.origin
-//            ivHeadshot.frame.origin.y=UIScreen.main.bounds.width/2
+            ivHeadshot.transform = CGAffineTransform(scaleX: scale, y: scale)
+            ivHeadshot.frame.origin.y += y
+            for subView in view.subviews{
+                if(subView.tag != 1){
+                    subView.alpha=0.3
+                }
+            }
+           
         case .ended:
             ivHeadshot.transform = CGAffineTransform(scaleX: 1, y: 1)
+            ivHeadshot.frame.origin.y -= y
+            for subView in view.subviews{
+                if(subView.tag != 1){
+                    subView.alpha=1
+                }
+            }
         default:
             break
         }
@@ -291,7 +305,6 @@ class MemberDatailVC: UIViewController {
                 break
             }
         }
-//        picker.isHidden=false//顯示
     }
     
     @IBAction func showType(_ sender: Any) {
@@ -307,7 +320,6 @@ class MemberDatailVC: UIViewController {
                 break
             }
         }
-//        picker.isHidden=false//顯示
     }
     
     
