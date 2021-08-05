@@ -22,6 +22,7 @@ class PublishDetailVC: UIViewController {
     @IBOutlet weak var publishDetailInfo: UITextView!
     @IBOutlet var furnishedArray: [UILabel]!
     @IBOutlet weak var publishDetailMap: MKMapView!
+    @IBOutlet weak var contentView: UIStackView!
     
     var locationManager: CLLocationManager!
     var userLocation: CLLocationCoordinate2D?
@@ -84,14 +85,14 @@ class PublishDetailVC: UIViewController {
 
     func makeBanner() {
         if (publishImg.count == 3) {
-//            view.addSubview(bannerView)
-//            bannerView.snp.makeConstraints {
-//                $0.left.equalTo(0)
-////                $0.top.equalTo(100)
+            contentView.addSubview(bannerView)
+            bannerView.snp.makeConstraints {
+                $0.left.equalTo(0)
+                $0.top.equalTo(0)
 //                $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-//                $0.right.equalTo(0)
-//                $0.height.equalTo(200)
-//            }
+                $0.right.equalTo(0)
+                $0.height.equalTo(200)
+            }
         }
     }
     
@@ -216,8 +217,26 @@ class PublishDetailVC: UIViewController {
     
     @IBAction func clickDelete(_ sender: Any) {
         showAlert(message: "是否確定刪除？", viewController: self) {
-            print("刪了")
-            self.navigationController?.popViewController(animated: true)
+            let url = URL(string: common_url + "publishListController")
+            
+            let requestParam: [String : Any] = ["action" : "pubishDelete",
+                                "publishId" : self.publish!.publishId]
+            
+            executeTask(url!, requestParam) { data, resp, error in
+                if let data = data {
+                    do {
+                        // 解析資料
+                        let resp = try JSONDecoder().decode([String : Bool].self, from: data)
+                        if let result = resp["result"], result {
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
         }
     }
     
@@ -251,8 +270,8 @@ extension PublishDetailVC: ZCycleViewProtocol {
     
     func cycleViewConfigurePageControl(_ cycleView: ZCycleView, pageControl: ZPageControl) {
         pageControl.isHidden = false
-        pageControl.currentPageIndicatorTintColor = .red
-        pageControl.pageIndicatorTintColor = .green
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.pageIndicatorTintColor = .gray
         pageControl.frame = CGRect(x: 0, y: cycleView.bounds.height-25, width: cycleView.bounds.width, height: 25)
     }
 }

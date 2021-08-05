@@ -22,8 +22,6 @@ class PublishListTVC: UITableViewController {
         cityList = CityAreaUtil.instance.cityList
         areaList = CityAreaUtil.instance.areaList
         
-        // 取得刊登資料
-        getPublishData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,6 +29,11 @@ class PublishListTVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        // 取得刊登資料
+        getPublishData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
