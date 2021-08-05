@@ -18,7 +18,7 @@ class ChatMsgListTVC: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reportChatMsgs = getReportChatMsgs()
+//        reportChatMsgs = getReportChatMsgs()
     }
 
  
@@ -106,10 +106,10 @@ class ChatMsgListTVC: UITableViewController {
 extension ChatMsgListTVC {
     
     //連線拿資料
-    func getReportChatMsgs()->[Report] {
-        
-        
-    }
+//    func getReportChatMsgs()->[Report] {
+//
+//
+//    }
     
     
     

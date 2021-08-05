@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A04444A26BBC67200897819 /* ChatMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04444926BBC67200897819 /* ChatMsgCell.swift */; };
+		0A04444C26BBC7D900897819 /* ChatMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04444B26BBC7D900897819 /* ChatMsgVC.swift */; };
 		0A77DA5226ADAD2700849D50 /* CityAreaUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77DA5126ADAD2700849D50 /* CityAreaUtil.swift */; };
 		0A7B0C6126AFB847000C9A5E /* PublishDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */; };
 		0A918CB626B7901800120162 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0A918CB526B7901800120162 /* SDWebImage */; };
@@ -74,6 +76,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A04444926BBC67200897819 /* ChatMsgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMsgCell.swift; sourceTree = "<group>"; };
+		0A04444B26BBC7D900897819 /* ChatMsgVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMsgVC.swift; sourceTree = "<group>"; };
 		0A77DA5126ADAD2700849D50 /* CityAreaUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAreaUtil.swift; sourceTree = "<group>"; };
 		0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDetailVC.swift; sourceTree = "<group>"; };
 		0A918CBB26B7919F00120162 /* ZPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPageControl.swift; sourceTree = "<group>"; };
@@ -111,7 +115,6 @@
 		4430670726AD47F400E918B2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		4430670926AD48AF00E918B2 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		4430670B26AD494C00E918B2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		4430670D26AE86E100E918B2 /* ChatMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMsgVC.swift; sourceTree = "<group>"; };
 		4430670F26AFAB8900E918B2 /* ChatMsgListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMsgListTVC.swift; sourceTree = "<group>"; };
 		B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDatailVC.swift; sourceTree = "<group>"; };
 		B68FC35026AD220A001141D5 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -204,7 +207,7 @@
 			children = (
 				B6EA91E526B2FD5300D14659 /* Member */,
 				4430670F26AFAB8900E918B2 /* ChatMsgListTVC.swift */,
-				4430670D26AE86E100E918B2 /* ChatMsgVC.swift */,
+				0A04444B26BBC7D900897819 /* ChatMsgVC.swift */,
 				443066F526AD1ADE00E918B2 /* SignInVC.swift */,
 				B68FC36E26AD2973001141D5 /* HomeVC.swift */,
 				0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */,
@@ -262,6 +265,7 @@
 		B68FC36726AD233D001141D5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				0A04444926BBC67200897819 /* ChatMsgCell.swift */,
 				B68FC36826AD2350001141D5 /* MenuCell.swift */,
 				B68FC36A26AD2357001141D5 /* MemberCell.swift */,
 				0AEB665326AE935E00F8CB76 /* PublishCell.swift */,
@@ -405,6 +409,7 @@
 				B68FC37626AD77E4001141D5 /* MemberListVC.swift in Sources */,
 				4430670A26AD48AF00E918B2 /* ChatRoom.swift in Sources */,
 				443066FA26AD3F7E00E918B2 /* Report.swift in Sources */,
+				0A04444A26BBC67200897819 /* ChatMsgCell.swift in Sources */,
 				B67AB90E26AEFCF1001DA93E /* MemberDatailVC.swift in Sources */,
 				B68FC36926AD2350001141D5 /* MenuCell.swift in Sources */,
 				4430670426AD459E00E918B2 /* Order.swift in Sources */,
@@ -423,6 +428,7 @@
 				B68FC36F26AD2973001141D5 /* HomeVC.swift in Sources */,
 				0A77DA5226ADAD2700849D50 /* CityAreaUtil.swift in Sources */,
 				B68FC37126AD29D9001141D5 /* Menu.swift in Sources */,
+				0A04444C26BBC7D900897819 /* ChatMsgVC.swift in Sources */,
 				B68FC36B26AD2357001141D5 /* MemberCell.swift in Sources */,
 				0A918CBF26B7919F00120162 /* ZCycleLayout.swift in Sources */,
 				0AA58E2E26AD568800CCE8A4 /* PublishListTVC.swift in Sources */,
