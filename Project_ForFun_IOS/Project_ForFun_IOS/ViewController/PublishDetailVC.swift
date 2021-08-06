@@ -61,6 +61,7 @@ class PublishDetailVC: UIViewController {
         
         // 定位資訊設定
         locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization() // 要求定位權限
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 1 // 移動1公尺以上才重新抓位置
@@ -169,6 +170,10 @@ class PublishDetailVC: UIViewController {
         publishDetailType.text = "\(type)"
         publishDetailDeposit.text = "\(publish.deposit!)個月"
         publishDetailInfo.text = publish.publishInfo
+        
+        // 可用來設定內容與編框的間距
+//        publishDetailInfo.textContainerInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+//        publishDetailInfo.textContainerInset = .zero
         
         let furnished = publish.furnished!.split(separator: "|")
         
