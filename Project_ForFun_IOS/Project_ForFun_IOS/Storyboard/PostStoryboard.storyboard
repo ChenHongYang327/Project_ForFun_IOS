@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qXf-K2-kBC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="So4-AX-8Jm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -11,7 +11,7 @@
         <!--PostList-->
         <scene sceneID="Tbg-Qd-H4F">
             <objects>
-                <tableViewController id="So4-AX-8Jm" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PostStoryBoard" id="So4-AX-8Jm" customClass="PostListVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sIR-Op-3kh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,6 @@
                                     <outlet property="postImage" destination="Ogn-EI-ODr" id="PdA-Qj-apT"/>
                                     <outlet property="postReport" destination="5ic-En-Cmd" id="j7r-jk-7Xq"/>
                                     <outlet property="postTitle" destination="qUI-Xs-otT" id="uoL-lh-r2b"/>
-                                    <segue destination="3jN-P0-KfW" kind="show" trigger="accessoryAction" id="SCa-VX-LdM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="129" y="62"/>
         </scene>
-        <!--Post ListVC-->
+        <!--Post List DetailVC-->
         <scene sceneID="V3H-Kt-uRr">
             <objects>
-                <viewController id="3jN-P0-KfW" customClass="PostListVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostDetail" id="3jN-P0-KfW" customClass="PostListDetailVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tn0-qU-SxY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +104,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="未通過"/>
                                 <connections>
-                                    <action selector="btNoPass:" destination="3jN-P0-KfW" eventType="touchUpInside" id="LFK-Me-Vbg"/>
+                                    <action selector="btNoPass:" destination="3jN-P0-KfW" eventType="touchUpInside" id="Pnu-Zt-irJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnP-uy-nz2">
@@ -115,7 +114,7 @@
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="btPassDelete:" destination="3jN-P0-KfW" eventType="touchUpInside" id="evR-cI-Qsd"/>
+                                    <action selector="btPassDelete:" destination="3jN-P0-KfW" eventType="touchUpInside" id="v9O-Xm-fxx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="文章內容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfb-5H-exX">
@@ -131,30 +130,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="VPI-WW-nef"/>
                     <connections>
-                        <outlet property="postContext" destination="yUv-Pz-Zrp" id="rNV-nO-JZx"/>
-                        <outlet property="postImg" destination="EVb-g0-Rrm" id="iBR-Qv-5Cs"/>
-                        <outlet property="postTitle" destination="bnM-Re-2me" id="Nqd-Sq-qdn"/>
+                        <outlet property="postContext" destination="yUv-Pz-Zrp" id="J5N-D6-AZ4"/>
+                        <outlet property="postImg" destination="EVb-g0-Rrm" id="sb1-sd-koW"/>
+                        <outlet property="postTitle" destination="bnM-Re-2me" id="F8r-Mb-U5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KGP-Xk-FFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934.78260869565224" y="61.607142857142854"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CJe-HI-M4E">
-            <objects>
-                <navigationController id="qXf-K2-kBC" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NOx-a5-GFh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="So4-AX-8Jm" kind="relationship" relationship="rootViewController" id="wEW-3j-83Z"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="srX-ln-zC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-606" y="62"/>
         </scene>
     </scenes>
     <resources>
