@@ -55,6 +55,10 @@
 		9B0D4D9E26BEF729007BFCAB /* PostListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D4D9D26BEF729007BFCAB /* PostListVC.swift */; };
 		9B4CFB0526BCE76200EE0A79 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4CFB0426BCE76200EE0A79 /* PostCell.swift */; };
 		9B53F00826BD9FEE00CC697A /* PostListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53F00726BD9FEE00CC697A /* PostListDetailVC.swift */; };
+		B627194B26BFCBF500DB3B15 /* ReportMemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B627194A26BFCBF500DB3B15 /* ReportMemberStoryboard.storyboard */; };
+		B627194D26BFCC0800DB3B15 /* banuser.png in Resources */ = {isa = PBXBuildFile; fileRef = B627194C26BFCC0800DB3B15 /* banuser.png */; };
+		B627194F26BFCC1400DB3B15 /* ReportMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627194E26BFCC1400DB3B15 /* ReportMemberCell.swift */; };
+		B627195126BFCC2400DB3B15 /* ReportMemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627195026BFCC2400DB3B15 /* ReportMemberListVC.swift */; };
 		B67AB90E26AEFCF1001DA93E /* MemberDatailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */; };
 		B68FC35126AD220A001141D5 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FC35026AD220A001141D5 /* Common.swift */; };
 		B68FC35C26AD226D001141D5 /* customerresp.png in Resources */ = {isa = PBXBuildFile; fileRef = B68FC35326AD226C001141D5 /* customerresp.png */; };
@@ -122,6 +126,10 @@
 		9B0D4D9D26BEF729007BFCAB /* PostListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListVC.swift; sourceTree = "<group>"; };
 		9B4CFB0426BCE76200EE0A79 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		9B53F00726BD9FEE00CC697A /* PostListDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListDetailVC.swift; sourceTree = "<group>"; };
+		B627194A26BFCBF500DB3B15 /* ReportMemberStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReportMemberStoryboard.storyboard; sourceTree = "<group>"; };
+		B627194C26BFCC0800DB3B15 /* banuser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banuser.png; sourceTree = "<group>"; };
+		B627194E26BFCC1400DB3B15 /* ReportMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportMemberCell.swift; sourceTree = "<group>"; };
+		B627195026BFCC2400DB3B15 /* ReportMemberListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportMemberListVC.swift; sourceTree = "<group>"; };
 		B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDatailVC.swift; sourceTree = "<group>"; };
 		B68FC35026AD220A001141D5 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B68FC35326AD226C001141D5 /* customerresp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customerresp.png; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 			children = (
 				443066C426AD010100E918B2 /* Main.storyboard */,
 				443066E626AD17D400E918B2 /* CustomerServiceStoryboard.storyboard */,
+				B627194A26BFCBF500DB3B15 /* ReportMemberStoryboard.storyboard */,
 				443066E826AD17FD00E918B2 /* PublishStoryboard.storyboard */,
 				443066EA26AD181B00E918B2 /* MemberStoryboard.storyboard */,
 				443066EC26AD183400E918B2 /* HouseOwnerStoryboard.storyboard */,
@@ -257,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				B68FC35A26AD226D001141D5 /* commoncheck.png */,
+				B627194C26BFCC0800DB3B15 /* banuser.png */,
 				B68FC37726AD7CFD001141D5 /* noimage.jpg */,
 				B68FC35326AD226C001141D5 /* customerresp.png */,
 				B68FC35926AD226D001141D5 /* else.png */,
@@ -277,6 +287,7 @@
 				B68FC36826AD2350001141D5 /* MenuCell.swift */,
 				B68FC36A26AD2357001141D5 /* MemberCell.swift */,
 				0AEB665326AE935E00F8CB76 /* PublishCell.swift */,
+				B627194E26BFCC1400DB3B15 /* ReportMemberCell.swift */,
 				0A918CC126B79A3100120162 /* CustomCollectionViewCell.swift */,
 				9B4CFB0426BCE76200EE0A79 /* PostCell.swift */,
 			);
@@ -308,6 +319,7 @@
 				B68FC37526AD77E4001141D5 /* MemberListVC.swift */,
 				B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */,
 				B6EA91E126B2ECD600D14659 /* HouseOwnerListVC.swift */,
+				B627195026BFCC2400DB3B15 /* ReportMemberListVC.swift */,
 				B6FB0D7F26B51BAE00AD7B6F /* HouseOwnerDetailVC.swift */,
 			);
 			path = Member;
@@ -389,6 +401,7 @@
 				B68FC36226AD226D001141D5 /* else.png in Resources */,
 				B68FC35F26AD226D001141D5 /* landlordcheck.png in Resources */,
 				443066EB26AD181B00E918B2 /* MemberStoryboard.storyboard in Resources */,
+				B627194D26BFCC0800DB3B15 /* banuser.png in Resources */,
 				B68FC35C26AD226D001141D5 /* customerresp.png in Resources */,
 				B68FC37826AD7CFE001141D5 /* noimage.jpg in Resources */,
 				B68FC36126AD226D001141D5 /* postcheck.png in Resources */,
@@ -397,6 +410,7 @@
 				B68FC36426AD226D001141D5 /* signin.png in Resources */,
 				443066E126AD02CA00E918B2 /* GoogleService-Info.plist in Resources */,
 				B68FC36326AD226D001141D5 /* commoncheck.png in Resources */,
+				B627194B26BFCBF500DB3B15 /* ReportMemberStoryboard.storyboard in Resources */,
 				B68FC36026AD226D001141D5 /* publishcheck.png in Resources */,
 				443066CB26AD010200E918B2 /* Assets.xcassets in Resources */,
 				B68FC35D26AD226D001141D5 /* memberstatus.png in Resources */,
@@ -420,6 +434,7 @@
 				9B4CFB0526BCE76200EE0A79 /* PostCell.swift in Sources */,
 				443066FA26AD3F7E00E918B2 /* Report.swift in Sources */,
 				0A04444A26BBC67200897819 /* ChatMsgCell.swift in Sources */,
+				B627194F26BFCC1400DB3B15 /* ReportMemberCell.swift in Sources */,
 				B67AB90E26AEFCF1001DA93E /* MemberDatailVC.swift in Sources */,
 				B68FC36926AD2350001141D5 /* MenuCell.swift in Sources */,
 				4430670426AD459E00E918B2 /* Order.swift in Sources */,
@@ -452,6 +467,7 @@
 				443066C126AD010100E918B2 /* SceneDelegate.swift in Sources */,
 				4430670C26AD494C00E918B2 /* Message.swift in Sources */,
 				B6FB0D8026B51BAE00AD7B6F /* HouseOwnerDetailVC.swift in Sources */,
+				B627195126BFCC2400DB3B15 /* ReportMemberListVC.swift in Sources */,
 				B68FC35126AD220A001141D5 /* Common.swift in Sources */,
 				9B0D4D9E26BEF729007BFCAB /* PostListVC.swift in Sources */,
 				443066C926AD010100E918B2 /* Project_ForFun_IOS.xcdatamodeld in Sources */,

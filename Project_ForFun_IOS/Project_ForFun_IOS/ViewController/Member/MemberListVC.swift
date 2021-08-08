@@ -17,6 +17,7 @@ class MemberListVC: UITableViewController {
     }
     //返回刷新
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
        getAllMember()
     }
 
@@ -73,8 +74,8 @@ class MemberListVC: UITableViewController {
             }
             //檢查伺服器連線狀態
             if let httpResponse = resp as? HTTPURLResponse {
-                print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                 if(httpResponse.statusCode != 200){
+                    print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                     DispatchQueue.main.async {
                     showSimpleAlert(message: "請嘗試將伺服器重新啟動", viewController: self)
                     }

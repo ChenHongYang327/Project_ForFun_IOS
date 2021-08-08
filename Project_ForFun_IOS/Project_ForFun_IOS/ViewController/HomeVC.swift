@@ -103,6 +103,15 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             let postListVC = storyboard.instantiateViewController(withIdentifier: "PostStoryBoard") as! PostListVC
             self.navigationController?.pushViewController(postListVC, animated: true)
             }
+        else if(menu.name=="會員檢舉"){
+               let storyboard = UIStoryboard(name: "ReportMemberStoryboard", bundle: nil)
+               let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "reportMemberListVC") as! ReportMemberListVC
+               self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
+               } else if(menu.name=="會員檢舉"){
+               let storyboard = UIStoryboard(name: "ReportMemberStoryboard", bundle: nil)
+               let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "reportMemberListVC") as! ReportMemberListVC
+               self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
+               }
     }
     
     func loadMenu()->[Menu]{
@@ -110,6 +119,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         menus.append(Menu(name: "刊登表審核", image: UIImage(named: "publishcheck")!))
         menus.append(Menu(name: "客服回應", image: UIImage(named: "customerresp")!))
         menus.append(Menu(name: "會員列表", image: UIImage(named: "memberstatus")!))
+        menus.append(Menu(name: "會員檢舉", image: UIImage(named: "banuser")!))
         menus.append(Menu(name: "留言審核", image: UIImage(named: "commoncheck")!))
         menus.append(Menu(name: "文章審核", image: UIImage(named: "postcheck")!))
         menus.append(Menu(name: "房東證審核", image: UIImage(named: "landlordcheck")!))
