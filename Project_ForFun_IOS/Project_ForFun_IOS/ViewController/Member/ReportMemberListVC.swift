@@ -36,13 +36,14 @@ class ReportMemberListVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //客製化需強制轉型
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reportMemberCell", for: indexPath) as! ReportMembeerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reportMemberCell", for: indexPath) as! ReportMemberCell
         let report=reports[indexPath.row]
         let member=reporteds[indexPath.row]
+        cell.ivReported.image=nil
         getImage(url: member.headshot) { data in
-            cell.ivWhistleblower.image=UIImage(data: data!)
+            cell.ivReported.image=UIImage(data: data!)
         }
-        cell.lbWhistleblowerName.text="\(member.nameL)\(member.nameF)"
+        cell.lbReportedName.text="\(member.nameL)\(member.nameF)"
         let attributedString = NSMutableAttributedString(string: "\(report.message==nil ? "檢舉原因:無":"檢舉原因:\(report.message!)")")
         //從第1個字開始，5個字都改變字體大小與字型
         attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Helvetica-Bold", size: 22.0)!, range: NSMakeRange(0, 5))
@@ -57,7 +58,7 @@ class ReportMemberListVC: UITableViewController {
         let decoder = JSONDecoder()
         let format = DateFormatter()
         //後端沒設定GSON日期的格式
-        format.dateFormat = "MMM dd, yyyy hh:mm:ss a"
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
         decoder.dateDecodingStrategy = .formatted(format)
         var requestParam=[String : Any]()
         requestParam["action"]="getReportMember"
@@ -81,8 +82,6 @@ class ReportMemberListVC: UITableViewController {
                     let result = try JSONDecoder().decode([String:String].self, from: data)
                     self.reports = try decoder.decode([Report].self, from: (result["reports"]!.data(using: .utf8)!))
                     self.reporteds = try decoder.decode([Member].self, from: (result["reporteds"]!.data(using: .utf8)!))
-//                    print(self.reports.count)
-//                    print(self.reporteds.count)
                     DispatchQueue.main.async {
                             /* 抓到資料後重刷table view */
                             self.tableView.reloadData()
@@ -95,5 +94,21 @@ class ReportMemberListVC: UITableViewController {
                 
             }
         }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //指定storyboard(當前的可不寫)
+//    let storyboard = UIStoryboard(name: "MemberStoryboard", bundle: nil)
+    //取得頁面
+    let reportMemberDetailVC = self.storyboard!.instantiateViewController(withIdentifier: "reportMemberDetailVC") as! ReportMemberDetailVC
+    let report=reports[indexPath.row]
+    let reported=reporteds[indexPath.row]//被檢舉者
+    //將值指定給下頁
+    reportMemberDetailVC.report=report
+    reportMemberDetailVC.reported=reported
+    //將前一頁的data(頭貼)帶到下一頁減少抓圖次數
+    let cell=tableView.cellForRow(at: indexPath) as! ReportMemberCell
+    reportMemberDetailVC.data=cell.ivReported.image?.jpegData(compressionQuality: CGFloat(1.0))
+        //跳轉
+        self.navigationController?.pushViewController(reportMemberDetailVC, animated: true)
     }
 }

@@ -34,7 +34,7 @@ class MemberListVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath) as! MemberCell
         cell.nameMemberCell.text=member.nameL+member.nameF
         cell.phoneMemberCell.text="0\(member.phone)"
-        cell.ivMemberCell.image = UIImage(named: "noimage")
+        cell.ivMemberCell.image = UIImage(named: "noimage.jpg")
         getImage(url: member.headshot) { data in
             cell.ivMemberCell.image = UIImage(data: data!)
         }

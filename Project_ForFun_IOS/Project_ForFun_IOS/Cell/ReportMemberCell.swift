@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ReportMembeerCell: UITableViewCell{
-    @IBOutlet weak var ivWhistleblower: UIImageView!
-    @IBOutlet weak var lbWhistleblowerName: UILabel!
+class ReportMemberCell: UITableViewCell{
+    @IBOutlet weak var ivReported: UIImageView!
+    @IBOutlet weak var lbReportedName: UILabel!
     @IBOutlet weak var lbReportNote: UILabel!
     
     

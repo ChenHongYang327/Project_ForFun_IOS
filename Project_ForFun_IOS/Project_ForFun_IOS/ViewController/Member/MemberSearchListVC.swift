@@ -54,18 +54,9 @@ class MemberSearchListVC: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath) as! MemberCell
         cell.nameMemberCell.text=member.nameL+member.nameF
         cell.phoneMemberCell.text="0\(member.phone)"
-        cell.ivMemberCell.image = UIImage(named: "noimage")
-
-        //從FireStore下載圖片
-        let imageRef = Storage.storage().reference().child(member.headshot)
-        // 設定最大可下載10M
-        imageRef.getData(maxSize: 10 * 1024 * 1024) { (data, error) in
-            if let imageData = data {
-                cell.ivMemberCell.image = UIImage(data: imageData)
-            } else {
-                cell.ivMemberCell.image = UIImage(named: "noimage")
-                print(error != nil ? error!.localizedDescription : "Downloading error!")
-            }
+        cell.ivMemberCell.image = nil
+        getImage(url: member.headshot) { data in
+            cell.ivMemberCell.image = UIImage(data: data!)
         }
         return cell
     }
@@ -104,8 +95,8 @@ class MemberSearchListVC: UIViewController, UITableViewDataSource, UITableViewDe
             }
             //檢查連線狀態
             if let httpResponse = resp as? HTTPURLResponse {
-                print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                 if(httpResponse.statusCode != 200){
+                    print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                     DispatchQueue.main.async {
                     showSimpleAlert(message: "請嘗試將伺服器重新啟動", viewController: self)
                     }

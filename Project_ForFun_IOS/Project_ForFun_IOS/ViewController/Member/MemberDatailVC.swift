@@ -41,7 +41,7 @@ class MemberDatailVC: UIViewController {
                 ivHeadshot.image=UIImage(data: data!)
             }
             //防止圖片未載入完成就點選就再抓一次圖
-            else if(data == nil||ivHeadshot.image==UIImage(named: "noimage.jpg")){
+            else if(data == nil){
 //                print("圖片未載入完成")
                 //從FireStore下載圖片
                 getImage(url: member.headshot) { data in

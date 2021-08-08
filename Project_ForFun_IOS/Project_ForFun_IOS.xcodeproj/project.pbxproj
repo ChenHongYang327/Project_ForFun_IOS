@@ -59,6 +59,8 @@
 		B627194D26BFCC0800DB3B15 /* banuser.png in Resources */ = {isa = PBXBuildFile; fileRef = B627194C26BFCC0800DB3B15 /* banuser.png */; };
 		B627194F26BFCC1400DB3B15 /* ReportMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627194E26BFCC1400DB3B15 /* ReportMemberCell.swift */; };
 		B627195126BFCC2400DB3B15 /* ReportMemberListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627195026BFCC2400DB3B15 /* ReportMemberListVC.swift */; };
+		B627195326BFD1AE00DB3B15 /* ReportMemberDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627195226BFD1AD00DB3B15 /* ReportMemberDetailVC.swift */; };
+		B627195526C000AE00DB3B15 /* ReportMemberPrivateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B627195426C000AE00DB3B15 /* ReportMemberPrivateVC.swift */; };
 		B67AB90E26AEFCF1001DA93E /* MemberDatailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */; };
 		B68FC35126AD220A001141D5 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FC35026AD220A001141D5 /* Common.swift */; };
 		B68FC35C26AD226D001141D5 /* customerresp.png in Resources */ = {isa = PBXBuildFile; fileRef = B68FC35326AD226C001141D5 /* customerresp.png */; };
@@ -130,6 +132,8 @@
 		B627194C26BFCC0800DB3B15 /* banuser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banuser.png; sourceTree = "<group>"; };
 		B627194E26BFCC1400DB3B15 /* ReportMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportMemberCell.swift; sourceTree = "<group>"; };
 		B627195026BFCC2400DB3B15 /* ReportMemberListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportMemberListVC.swift; sourceTree = "<group>"; };
+		B627195226BFD1AD00DB3B15 /* ReportMemberDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMemberDetailVC.swift; sourceTree = "<group>"; };
+		B627195426C000AE00DB3B15 /* ReportMemberPrivateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMemberPrivateVC.swift; sourceTree = "<group>"; };
 		B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDatailVC.swift; sourceTree = "<group>"; };
 		B68FC35026AD220A001141D5 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B68FC35326AD226C001141D5 /* customerresp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customerresp.png; sourceTree = "<group>"; };
@@ -315,12 +319,14 @@
 		B6EA91E526B2FD5300D14659 /* Member */ = {
 			isa = PBXGroup;
 			children = (
-				B6EA91E326B2F3A500D14659 /* MemberSearchListVC.swift */,
 				B68FC37526AD77E4001141D5 /* MemberListVC.swift */,
+				B6EA91E326B2F3A500D14659 /* MemberSearchListVC.swift */,
 				B67AB90D26AEFCF1001DA93E /* MemberDatailVC.swift */,
 				B6EA91E126B2ECD600D14659 /* HouseOwnerListVC.swift */,
-				B627195026BFCC2400DB3B15 /* ReportMemberListVC.swift */,
 				B6FB0D7F26B51BAE00AD7B6F /* HouseOwnerDetailVC.swift */,
+				B627195026BFCC2400DB3B15 /* ReportMemberListVC.swift */,
+				B627195226BFD1AD00DB3B15 /* ReportMemberDetailVC.swift */,
+				B627195426C000AE00DB3B15 /* ReportMemberPrivateVC.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -449,6 +455,7 @@
 				443066FE26AD424500E918B2 /* Publish.swift in Sources */,
 				4430670826AD47F400E918B2 /* Comment.swift in Sources */,
 				B68FC36626AD227D001141D5 /* Member.swift in Sources */,
+				B627195526C000AE00DB3B15 /* ReportMemberPrivateVC.swift in Sources */,
 				4430670026AD445300E918B2 /* City.swift in Sources */,
 				B68FC36F26AD2973001141D5 /* HomeVC.swift in Sources */,
 				0A77DA5226ADAD2700849D50 /* CityAreaUtil.swift in Sources */,
@@ -466,6 +473,7 @@
 				443066BF26AD010100E918B2 /* AppDelegate.swift in Sources */,
 				443066C126AD010100E918B2 /* SceneDelegate.swift in Sources */,
 				4430670C26AD494C00E918B2 /* Message.swift in Sources */,
+				B627195326BFD1AE00DB3B15 /* ReportMemberDetailVC.swift in Sources */,
 				B6FB0D8026B51BAE00AD7B6F /* HouseOwnerDetailVC.swift in Sources */,
 				B627195126BFCC2400DB3B15 /* ReportMemberListVC.swift in Sources */,
 				B68FC35126AD220A001141D5 /* Common.swift in Sources */,
