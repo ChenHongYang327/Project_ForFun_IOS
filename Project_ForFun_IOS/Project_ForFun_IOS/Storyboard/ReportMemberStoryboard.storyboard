@@ -215,13 +215,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4j5-cF-zqi">
-                                <rect key="frame" x="20" y="90" width="49" height="29"/>
+                                <rect key="frame" x="20" y="54" width="49" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vAp-mK-Ohe">
-                                <rect key="frame" x="87" y="212" width="240" height="128"/>
+                                <rect key="frame" x="87" y="147" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="3gN-JY-r6a"/>
@@ -232,13 +232,13 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身分證字號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5i-Kb-oqI">
-                                <rect key="frame" x="20" y="155" width="122" height="29"/>
+                                <rect key="frame" x="20" y="108" width="122" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WzO-fK-cUc">
-                                <rect key="frame" x="87" y="370" width="240" height="128"/>
+                                <rect key="frame" x="87" y="285" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Muw-vy-qvp"/>
@@ -249,17 +249,17 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="良民證:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYr-dz-1h4">
-                                <rect key="frame" x="20" y="521" width="79" height="29"/>
+                                <rect key="frame" x="20" y="428" width="79" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q8e-HE-sQu">
-                                <rect key="frame" x="111.5" y="569" width="191" height="246"/>
+                                <rect key="frame" x="111.5" y="463" width="191" height="230"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="191" id="afj-Hn-I1c"/>
-                                    <constraint firstAttribute="height" constant="246" id="iYH-kT-B3h"/>
+                                    <constraint firstAttribute="height" constant="230" id="iYH-kT-B3h"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Vy7-Xd-XKj" appends="YES" id="mMp-ax-ERt"/>
@@ -269,18 +269,18 @@
                         <viewLayoutGuide key="safeArea" id="1wm-1K-H6R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mYr-dz-1h4" firstAttribute="top" secondItem="WzO-fK-cUc" secondAttribute="bottom" constant="23" id="0S0-z0-DQb"/>
-                            <constraint firstItem="4j5-cF-zqi" firstAttribute="leading" secondItem="1wm-1K-H6R" secondAttribute="leading" constant="20" id="6o8-Wr-9j8"/>
-                            <constraint firstItem="y5i-Kb-oqI" firstAttribute="top" secondItem="1wm-1K-H6R" secondAttribute="top" constant="111" id="BNE-fE-Gau"/>
-                            <constraint firstItem="4j5-cF-zqi" firstAttribute="top" secondItem="1wm-1K-H6R" secondAttribute="top" constant="46" id="Oit-Wa-3xK"/>
-                            <constraint firstItem="q8e-HE-sQu" firstAttribute="top" secondItem="WzO-fK-cUc" secondAttribute="bottom" constant="71" id="PFu-ix-gbb"/>
+                            <constraint firstItem="mYr-dz-1h4" firstAttribute="top" secondItem="WzO-fK-cUc" secondAttribute="bottom" constant="15" id="0S0-z0-DQb"/>
+                            <constraint firstItem="4j5-cF-zqi" firstAttribute="top" secondItem="1wm-1K-H6R" secondAttribute="top" constant="10" id="55L-65-omm"/>
+                            <constraint firstItem="4j5-cF-zqi" firstAttribute="leading" secondItem="1wm-1K-H6R" secondAttribute="leading" constant="20" id="7Q0-qe-wOg"/>
                             <constraint firstItem="q8e-HE-sQu" firstAttribute="centerX" secondItem="xFb-Qw-NBf" secondAttribute="centerX" id="UzV-pG-7gz"/>
                             <constraint firstItem="WzO-fK-cUc" firstAttribute="centerX" secondItem="xFb-Qw-NBf" secondAttribute="centerX" id="VFi-1F-OVs"/>
+                            <constraint firstItem="y5i-Kb-oqI" firstAttribute="top" secondItem="1wm-1K-H6R" secondAttribute="top" constant="64" id="hYE-cJ-jL8"/>
                             <constraint firstItem="y5i-Kb-oqI" firstAttribute="leading" secondItem="1wm-1K-H6R" secondAttribute="leading" constant="20" id="hqi-D3-xTH"/>
-                            <constraint firstItem="vAp-mK-Ohe" firstAttribute="top" secondItem="y5i-Kb-oqI" secondAttribute="bottom" constant="28" id="oLi-hv-GMQ"/>
+                            <constraint firstItem="vAp-mK-Ohe" firstAttribute="top" secondItem="y5i-Kb-oqI" secondAttribute="bottom" constant="10" id="oLi-hv-GMQ"/>
                             <constraint firstItem="mYr-dz-1h4" firstAttribute="leading" secondItem="1wm-1K-H6R" secondAttribute="leading" constant="20" id="pIX-Iw-RYm"/>
-                            <constraint firstItem="WzO-fK-cUc" firstAttribute="top" secondItem="vAp-mK-Ohe" secondAttribute="bottom" constant="30" id="r9w-9J-VP8"/>
+                            <constraint firstItem="WzO-fK-cUc" firstAttribute="top" secondItem="vAp-mK-Ohe" secondAttribute="bottom" constant="10" id="r9w-9J-VP8"/>
                             <constraint firstItem="vAp-mK-Ohe" firstAttribute="centerX" secondItem="xFb-Qw-NBf" secondAttribute="centerX" id="tWe-yY-o8F"/>
+                            <constraint firstItem="q8e-HE-sQu" firstAttribute="top" secondItem="WzO-fK-cUc" secondAttribute="bottom" constant="50" id="xdo-6S-TTX"/>
                         </constraints>
                     </view>
                     <connections>

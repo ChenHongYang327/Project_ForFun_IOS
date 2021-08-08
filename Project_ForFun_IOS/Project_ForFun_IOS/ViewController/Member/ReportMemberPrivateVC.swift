@@ -26,7 +26,12 @@ class ReportMemberPrivateVC: UIViewController {
     }
     
     func setData() {
-        lbAddress.text="地址:\n\(member.address)"
+        // 换行的模式我们选择文本自适应
+        lbAddress.lineBreakMode = NSLineBreakMode.byWordWrapping
+        lbAddress.numberOfLines = 0
+        //preferredMaxLayoutWidth这个属性就是与Autolayout相关的，必须设置了这个属性才能在Autolayout下让UILabel显示多行。而这个属性一般设置为Label的宽度。
+        lbAddress.preferredMaxLayoutWidth=self.view.frame.size.width-24
+        lbAddress.text="地址:\(member.address)"
         lbId.text="身分證字號:\(member.id)"
         getImage(url: member.idImgf) { data in
             self.ivIdF.image=UIImage(data: data!)
