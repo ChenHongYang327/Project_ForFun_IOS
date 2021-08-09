@@ -26,6 +26,8 @@ class HouseOwnerDetailVC: UIViewController {
     @IBOutlet weak var ivGoodPeople: UIImageView!
     @IBOutlet weak var btPass: UIButton!
     @IBOutlet weak var btNopass: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var secondView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,5 +147,58 @@ class HouseOwnerDetailVC: UIViewController {
             }
         }
     
+}
+    @IBAction func clickHeadShot(_ sender: UILongPressGestureRecognizer) {
+        ivHeadshot.tag=1
+        controlView(sender: sender, imageView: ivHeadshot)
+    }
+
+    @IBAction func clickId1(_ sender: UILongPressGestureRecognizer) {
+        ivIdF.tag=1
+        controlView(sender: sender, imageView: ivIdF)
+
+    }
+
+    @IBAction func clickId2(_ sender: UILongPressGestureRecognizer) {
+        ivIdb.tag=1
+        controlView(sender: sender, imageView: ivIdb)
+    }
+
+    @IBAction func clickGoodPeople(_ sender: UILongPressGestureRecognizer) {
+        ivGoodPeople.tag=1
+        controlView(sender: sender, imageView: ivGoodPeople)
+    }
+
+    func controlView(sender: UILongPressGestureRecognizer,imageView: UIImageView){
+//        let y = (UIScreen.main.bounds.height-(imageView.frame.origin.y*0.5)) * 0.5
+        let y = (UIScreen.main.bounds.height+scrollView.contentOffset.y)/2
+//        let y = view.frame.origin.y/2
+        //元件的比例
+        let scale = UIScreen.main.bounds.width / imageView.bounds.width
+        switch sender.state {
+        case .began:
+            imageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            print(":\(y)")
+            imageView.frame.origin.y += y < imageView.frame.origin.y ? -y: y
+            
+            for subView in secondView.subviews{
+                if(subView.tag != 1){
+                    subView.alpha=0.4
+                }
+            }
+
+        case .ended:
+            imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            imageView.frame.origin.y -= y < imageView.frame.origin.y ? y: -y
+            print("::\(y)")
+            for subView in secondView.subviews{
+                if(subView.tag != 1){
+                    subView.alpha=1
+                }
+            }
+            imageView.tag=0//恢復預設
+        default:
+            break
+    }
 }
 }
