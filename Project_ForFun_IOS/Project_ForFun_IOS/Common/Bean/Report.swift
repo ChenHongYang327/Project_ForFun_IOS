@@ -21,7 +21,7 @@ struct Report:Codable {
            case type
            case message
            case reportClass = "report_class"
-           case postId = " post_id"
+           case postId = "post_id"
            case chatroomId = "chatroom_id "
            case item
            case createTime
