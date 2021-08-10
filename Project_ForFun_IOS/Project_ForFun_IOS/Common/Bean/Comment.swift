@@ -12,6 +12,7 @@ struct Comment: Codable {
     var updateTime: Date?
     var deleteTime: Date?
     
+    
     public init( _ commentId: Int, _ memberId: Int, _ postId: Int, _ commentMsg: String?, _ read: Bool?, _ createTime: Date?, _ updateTime: Date?, _ deleteTime: Date?){
         self.commentId = commentId
         self.memberId = memberId

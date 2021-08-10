@@ -52,6 +52,7 @@
 		4430670A26AD48AF00E918B2 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430670926AD48AF00E918B2 /* ChatRoom.swift */; };
 		4430670C26AD494C00E918B2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430670B26AD494C00E918B2 /* Message.swift */; };
 		4451FC7F26B00275004C9062 /* ChatMsgListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430670F26AFAB8900E918B2 /* ChatMsgListTVC.swift */; };
+		4456BD4926C0BE34003A8282 /* ReportChatMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4456BD4826C0BE34003A8282 /* ReportChatMsg.swift */; };
 		9B0D4D9E26BEF729007BFCAB /* PostListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D4D9D26BEF729007BFCAB /* PostListVC.swift */; };
 		9B4CFB0526BCE76200EE0A79 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4CFB0426BCE76200EE0A79 /* PostCell.swift */; };
 		9B53F00826BD9FEE00CC697A /* PostListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53F00726BD9FEE00CC697A /* PostListDetailVC.swift */; };
@@ -125,6 +126,7 @@
 		4430670926AD48AF00E918B2 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		4430670B26AD494C00E918B2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4430670F26AFAB8900E918B2 /* ChatMsgListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMsgListTVC.swift; sourceTree = "<group>"; };
+		4456BD4826C0BE34003A8282 /* ReportChatMsg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportChatMsg.swift; sourceTree = "<group>"; };
 		9B0D4D9D26BEF729007BFCAB /* PostListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListVC.swift; sourceTree = "<group>"; };
 		9B4CFB0426BCE76200EE0A79 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		9B53F00726BD9FEE00CC697A /* PostListDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListDetailVC.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		B68FC37226AD2E77001141D5 /* Bean */ = {
 			isa = PBXGroup;
 			children = (
+				4456BD4826C0BE34003A8282 /* ReportChatMsg.swift */,
 				B68FC36526AD227D001141D5 /* Member.swift */,
 				443066F926AD3F7E00E918B2 /* Report.swift */,
 				443066FB26AD411800E918B2 /* CustomerService.swift */,
@@ -460,6 +463,7 @@
 				B68FC36F26AD2973001141D5 /* HomeVC.swift in Sources */,
 				0A77DA5226ADAD2700849D50 /* CityAreaUtil.swift in Sources */,
 				9B53F00826BD9FEE00CC697A /* PostListDetailVC.swift in Sources */,
+				4456BD4926C0BE34003A8282 /* ReportChatMsg.swift in Sources */,
 				B68FC37126AD29D9001141D5 /* Menu.swift in Sources */,
 				0A04444C26BBC7D900897819 /* ChatMsgVC.swift in Sources */,
 				B68FC36B26AD2357001141D5 /* MemberCell.swift in Sources */,
