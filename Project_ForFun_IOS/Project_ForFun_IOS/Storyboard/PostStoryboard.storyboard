@@ -136,7 +136,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCJ-qT-uOR">
-                                <rect key="frame" x="27" y="429.33333333333331" width="374" height="94.999999999999943"/>
+                                <rect key="frame" x="34" y="429.33333333333331" width="374" height="94.999999999999943"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="UBw-Lp-ONd"/>
@@ -163,7 +163,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文章內容:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfb-5H-exX">
-                                <rect key="frame" x="27.333333333333329" y="559.33333333333337" width="74" height="20.333333333333371"/>
+                                <rect key="frame" x="27.333333333333329" y="550" width="74" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -181,10 +181,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUv-Pz-Zrp">
-                                <rect key="frame" x="34" y="569.33333333333337" width="374" height="140"/>
+                                <rect key="frame" x="34" y="569.33333333333337" width="374" height="136"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="Gx5-5h-kpZ"/>
+                                    <constraint firstAttribute="height" constant="136" id="Gx5-5h-kpZ"/>
                                     <constraint firstAttribute="width" constant="374" id="pNP-RM-4e1"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -206,11 +206,13 @@
                             <constraint firstItem="EVb-g0-Rrm" firstAttribute="top" secondItem="bnM-Re-2me" secondAttribute="bottom" constant="8" id="Kdk-do-5vo"/>
                             <constraint firstItem="EVb-g0-Rrm" firstAttribute="centerY" secondItem="Tn0-qU-SxY" secondAttribute="centerY" multiplier="0.6" id="Lo0-vM-r4K"/>
                             <constraint firstItem="Sfb-5H-exX" firstAttribute="centerX" secondItem="Tn0-qU-SxY" secondAttribute="centerX" multiplier="0.3" id="Pb5-6U-NP6"/>
-                            <constraint firstItem="Sfb-5H-exX" firstAttribute="centerY" secondItem="Tn0-qU-SxY" secondAttribute="centerY" multiplier="1.23" id="R7M-f0-Zl8"/>
+                            <constraint firstItem="Sfb-5H-exX" firstAttribute="centerY" secondItem="Tn0-qU-SxY" secondAttribute="centerY" multiplier="1.21" id="R7M-f0-Zl8"/>
                             <constraint firstItem="xnP-uy-nz2" firstAttribute="centerX" secondItem="Tn0-qU-SxY" secondAttribute="centerX" id="SS3-ja-UiG"/>
                             <constraint firstItem="bnM-Re-2me" firstAttribute="centerY" secondItem="Tn0-qU-SxY" secondAttribute="centerY" multiplier="0.3" id="Sem-kT-rTn"/>
+                            <constraint firstItem="wCJ-qT-uOR" firstAttribute="trailing" secondItem="yUv-Pz-Zrp" secondAttribute="trailing" id="b1N-Yu-TPK"/>
                             <constraint firstItem="6Tk-6I-7N9" firstAttribute="centerX" secondItem="Tn0-qU-SxY" secondAttribute="centerX" multiplier="0.3" id="h7R-Ya-bRi"/>
                             <constraint firstItem="6Tk-6I-7N9" firstAttribute="centerY" secondItem="Tn0-qU-SxY" secondAttribute="centerY" multiplier="0.88" id="sMB-5O-RsF"/>
+                            <constraint firstItem="wCJ-qT-uOR" firstAttribute="leading" secondItem="yUv-Pz-Zrp" secondAttribute="leading" id="vdE-Qm-fiC"/>
                             <constraint firstItem="wCJ-qT-uOR" firstAttribute="centerY" secondItem="Tn0-qU-SxY" secondAttribute="centerY" multiplier="1.03" id="wVQ-LK-9uR"/>
                             <constraint firstItem="EVb-g0-Rrm" firstAttribute="centerX" secondItem="Tn0-qU-SxY" secondAttribute="centerX" id="yUO-ok-LJs"/>
                         </constraints>
@@ -225,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KGP-Xk-FFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134" y="40"/>
+            <point key="canvasLocation" x="1132.7102803738317" y="39.524838012958966"/>
         </scene>
     </scenes>
     <resources>

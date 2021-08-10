@@ -69,9 +69,9 @@ class PostListVC: UITableViewController {
             cell.postReport.text = "態度惡劣"
         }
             
-        let tmp=postList[indexPath.row].postId
+        
         cell.postTitle.text = postList[indexPath.row].postTitle
-        cell.postBoardId.text = "\(tmp)"
+        cell.postBoardId.text = postList[indexPath.row].boardId
         
         // 處理圖片
         cell.postImage.image = UIImage(named: "noimage.jpg")

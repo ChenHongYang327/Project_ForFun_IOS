@@ -43,6 +43,7 @@ class PostListDetailVC: UIViewController {
     }
     
     @IBAction func btNoPass(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btPassDelete(_ sender: Any) {
         
@@ -56,8 +57,8 @@ class PostListDetailVC: UIViewController {
                 if let data = data {
                     do {
                         // 解析資料
-                        let resp = try JSONDecoder().decode([String : Int].self, from: data)
-                        if let result = resp["count"], (result != 0) {
+                        let resp = try JSONDecoder().decode(Int.self, from: data)
+                        if resp != 0 {
                             DispatchQueue.main.async {
                                 self.navigationController?.popViewController(animated: true)
                             }
