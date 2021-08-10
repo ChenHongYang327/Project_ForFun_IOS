@@ -28,6 +28,15 @@ func showSimpleAlert(message: String, viewController: UIViewController) {
     /* 呼叫present()才會跳出Alert Controller */
     viewController.present(alertController, animated: true, completion:nil)
 }
+
+func showConfirmAlert(message: String, viewController: UIViewController, completionHandler:@escaping (UIAlertAction) -> Void) {
+    let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
+    let ok = UIAlertAction(title: "確定", style: .default, handler: completionHandler)
+    alertController.addAction(ok)
+    /* 呼叫present()才會跳出Alert Controller */
+    viewController.present(alertController, animated: true, completion:nil)
+}
+
 //清除Firebase電話認證
 func logOut(){
     guard let _ = try? Auth.auth().signOut()

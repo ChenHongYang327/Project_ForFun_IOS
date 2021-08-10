@@ -16,29 +16,41 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 取得行政區資料
+        _ = CityAreaUtil.instance
         fullScreenSize = UIScreen.main.bounds.size
         // 設定UICollectionView背景色
         collectionView.backgroundColor = UIColor.white
         // 取得UICollectionView排版物件
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         // 設定內容與邊界的間距
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 25, right: 5);
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5);
+//        // 設定每一列的間距
+//        layout.minimumLineSpacing = 10
+//        // 設定每個項目的尺寸
+//        layout.itemSize = CGSize(
+//            width: CGFloat(fullScreenSize.width)/3 - 10.0,
+//            height: CGFloat(fullScreenSize.width)/3 - 10.0)
+        // 表示一行中item間最小的距離,預設值為10
+        layout.minimumInteritemSpacing = 4
         // 設定每一列的間距
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 4
         // 設定每個項目的尺寸
         layout.itemSize = CGSize(
-            width: CGFloat(fullScreenSize.width)/3 - 10.0,
-            height: CGFloat(fullScreenSize.width)/3 - 10.0)
-        homeMenus=loadMenu()
+            width: CGFloat((UIScreen.main.bounds.width - 18) / 3),
+            height: CGFloat((UIScreen.main.bounds.height - 18) / 3) - (self.navigationController?.navigationBar.frame.size.height)!)
+        
+        self.navigationController?.navigationBar.barTintColor = primaryDarkColor
+        homeMenus = loadMenu()
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.gray
+        cell?.backgroundColor = primaryDarkColor
     }
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.lightGray
+        cell?.backgroundColor = primaryColor
     }
     
 
@@ -97,6 +109,10 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let storyboard = UIStoryboard(name: "ChatMsgStoryboard", bundle: nil)
         let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "ChatMsgListTVC") as! ChatMsgListTVC
         self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
+        } else if (menu.name == "客服回應") {
+            let storyboard = UIStoryboard(name: "CustomerServiceStoryboard", bundle: nil)
+            let customerServiceVC = storyboard.instantiateViewController(identifier: "customerServiceVC") as! CustomerServiceVC
+            self.navigationController?.pushViewController(customerServiceVC, animated: true)
         }
     }
     
