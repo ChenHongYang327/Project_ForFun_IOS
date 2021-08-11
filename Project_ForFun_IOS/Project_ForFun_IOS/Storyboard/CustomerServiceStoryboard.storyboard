@@ -32,14 +32,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-1G-eW6">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-1G-eW6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="77.5"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jhh-bg-rfb">
-                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jhh-bg-rfb">
+                                <rect key="frame" x="0.0" y="165.5" width="414" height="696.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Zd2-0U-sIy">
                                     <rect key="frame" x="0.0" y="149.00000034679067" width="414" height="0.0"/>
@@ -98,6 +96,18 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SVd-x1-PWU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jhh-bg-rfb" firstAttribute="centerX" secondItem="GH8-Ip-Wvo" secondAttribute="centerX" id="2OX-46-g1X"/>
+                            <constraint firstItem="jhh-bg-rfb" firstAttribute="trailing" secondItem="SVd-x1-PWU" secondAttribute="trailing" id="5xx-Xs-yOE"/>
+                            <constraint firstItem="jhh-bg-rfb" firstAttribute="top" secondItem="i8d-1G-eW6" secondAttribute="bottom" id="9zV-QW-9cV"/>
+                            <constraint firstItem="jhh-bg-rfb" firstAttribute="leading" secondItem="SVd-x1-PWU" secondAttribute="leading" id="ElT-Rf-2xO"/>
+                            <constraint firstItem="i8d-1G-eW6" firstAttribute="leading" secondItem="SVd-x1-PWU" secondAttribute="leading" id="Em7-6W-SdL"/>
+                            <constraint firstItem="i8d-1G-eW6" firstAttribute="top" secondItem="SVd-x1-PWU" secondAttribute="top" id="Qkt-MZ-Xc1"/>
+                            <constraint firstItem="jhh-bg-rfb" firstAttribute="height" secondItem="SVd-x1-PWU" secondAttribute="height" multiplier="0.9" id="YWT-Fo-QM1"/>
+                            <constraint firstItem="i8d-1G-eW6" firstAttribute="trailing" secondItem="SVd-x1-PWU" secondAttribute="trailing" id="eQx-1Y-9ul"/>
+                            <constraint firstItem="i8d-1G-eW6" firstAttribute="height" secondItem="SVd-x1-PWU" secondAttribute="height" multiplier="0.1" id="tf8-c3-9Bg"/>
+                            <constraint firstItem="i8d-1G-eW6" firstAttribute="centerX" secondItem="GH8-Ip-Wvo" secondAttribute="centerX" id="vaK-tO-CrP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="客服回應清單" id="ZiN-9C-qxG"/>
                     <connections>
@@ -113,7 +123,7 @@
         <scene sceneID="LZO-W0-wFq">
             <objects>
                 <viewController storyboardIdentifier="CustomerServiceDetailVC" id="hxp-5O-J2y" customClass="CustomerServiceDetailVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pkg-Wy-teV">
+                    <view key="view" contentMode="scaleToFill" id="Pkg-Wy-teV" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -192,7 +202,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dbZ-tI-lKa">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbZ-tI-lKa">
                                                 <rect key="frame" x="0.0" y="28.5" width="331" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -217,8 +227,9 @@
                                                     <outletCollection property="gestureRecognizers" destination="JWm-gC-sUt" appends="YES" id="7cw-wx-pgI"/>
                                                 </connections>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FuW-RU-oZe">
+                                            <textView clipsSubviews="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FuW-RU-oZe">
                                                 <rect key="frame" x="0.0" y="28.5" width="331" height="150"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="vbj-KX-vUc"/>
                                                 </constraints>
@@ -256,6 +267,9 @@
                             <constraint firstItem="3OD-1M-9Ip" firstAttribute="top" secondItem="Pkg-Wy-teV" secondAttribute="bottom" multiplier="0.2" id="gfw-s2-PIk"/>
                             <constraint firstItem="3OD-1M-9Ip" firstAttribute="centerX" secondItem="Pkg-Wy-teV" secondAttribute="centerX" id="tbJ-fy-rgy"/>
                         </constraints>
+                        <connections>
+                            <action selector="touchDown:" destination="hxp-5O-J2y" eventType="touchDown" id="fuT-1E-z6w"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="客服回應詳細" id="n1F-Ix-tny">
                         <barButtonItem key="rightBarButtonItem" title="電話聯繫" id="YrZ-iz-CzV">

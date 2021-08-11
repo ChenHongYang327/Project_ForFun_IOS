@@ -103,7 +103,7 @@ extension CustomerServiceVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailView = self.storyboard?.instantiateViewController(identifier: "\(CustomerServiceDetailVC.self)") as! CustomerServiceDetailVC
         // 傳送資料到下一頁
-        detailView.customerServise = customerServiceList[indexPath.row]
+        detailView.customerServise = searchList[indexPath.row]
         
         // 跳頁
         self.navigationController?.pushViewController(detailView, animated: true)

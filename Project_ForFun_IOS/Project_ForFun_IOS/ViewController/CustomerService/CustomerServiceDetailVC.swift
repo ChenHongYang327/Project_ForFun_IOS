@@ -28,6 +28,7 @@ class CustomerServiceDetailVC: UIViewController {
         }
         
         reply.backgroundColor = primaryColor
+        addKeyboardObserver()
     }
 
     /*
@@ -99,4 +100,46 @@ class CustomerServiceDetailVC: UIViewController {
             reply.text = "感謝您的回覆\n我們會盡快幫您處理\n請耐心等候\n\n謝謝"
         }
     }
+        
+    //背景點擊監聽點擊背景隱藏鍵盤
+    @IBAction func touchDown(_ sender: Any) {
+        //停止textfield的Focus(?)
+        reply.resignFirstResponder()
+    }
+}
+
+//鍵盤事件處理
+extension CustomerServiceDetailVC {
+    //呼叫此方法按下return即可隱藏鍵盤
+
+    
+    //定義方法增加監聽來處理特定事件
+    func addKeyboardObserver() {
+        //監聽鍵盤顯示
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //監聽鍵盤隱藏
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        // 能取得鍵盤高度就讓view上移鍵盤高度，否則上移view的1/3高度
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRect = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRect.height
+            view.frame.origin.y = -keyboardHeight
+        } else {
+            view.frame.origin.y = -view.frame.height / 3
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        view.frame.origin.y = 0 //歸位
+    }
+    //當頁面消失時移除監聽(減少資源消耗)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
 }
