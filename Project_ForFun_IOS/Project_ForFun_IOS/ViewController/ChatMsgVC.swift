@@ -56,8 +56,30 @@ class ChatMsgVC: UIViewController {
     }
     
     @IBAction func btPass(_ sender: Any) {
+        /* 建立標題為"Exit"，訊息為"Do you really want to exit?"，樣式為.alert(長得像Alert View)的Alert Controller */
+        let alertController = UIAlertController(title: "警告", message: "是否要刪除此留言？", preferredStyle: .alert)
+        
+        /* 建立標題為"Ok"，樣式為.default(預設樣式)的按鈕 */
+        let ok = UIAlertAction(title: "確定", style: .default) {
+            /* alertAction代表被點擊的按鈕 */
+            (alertAction) in
+            /* 取得被點擊按鈕的標題文字後顯示在lbMessage上 */
+           // self.label.text = "\(alertAction.title!) clicked"
+        }
+        /* 建立標題為"Cancel"，樣式為.cancel(取消樣式)的按鈕 */
+        let cancel = UIAlertAction(title: "取消", style: .cancel) {_ in
+          //  (alertAction) in self.label.text = "\(alertAction.title!) clicked"
+        }
+        /* Alert Controller加上ok與cancel按鈕 */
+        alertController.addAction(ok)
+        alertController.addAction(cancel)
+
+        /* 呼叫present()才會跳出Alert Controller */
+        self.present(alertController, animated: true, completion:nil)
     }
+    
     @IBAction func btDelete(_ sender: Any) {
+        
     }
     
     //從firestore下載圖片(失敗回傳內部圖片)
