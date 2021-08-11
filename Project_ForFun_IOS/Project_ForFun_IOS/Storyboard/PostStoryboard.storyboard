@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PostList-->
+        <!--文章審核-->
         <scene sceneID="Tbg-Qd-H4F">
             <objects>
                 <tableViewController storyboardIdentifier="PostStoryBoard" id="So4-AX-8Jm" customClass="PostListVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,13 +119,13 @@
                             <outlet property="delegate" destination="So4-AX-8Jm" id="dAg-7F-EBG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="PostList" id="j0h-NP-s4A"/>
+                    <navigationItem key="navigationItem" title="文章審核" id="j0h-NP-s4A"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FjK-8B-KIR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-194.85981308411215" y="34.98920086393089"/>
         </scene>
-        <!--Post List DetailVC-->
+        <!--文章審核-->
         <scene sceneID="V3H-Kt-uRr">
             <objects>
                 <viewController storyboardIdentifier="PostDetail" id="3jN-P0-KfW" customClass="PostListDetailVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -222,7 +222,7 @@
                             <constraint firstItem="EVb-g0-Rrm" firstAttribute="centerX" secondItem="Tn0-qU-SxY" secondAttribute="centerX" id="yUO-ok-LJs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VPI-WW-nef"/>
+                    <navigationItem key="navigationItem" title="文章審核" id="VPI-WW-nef"/>
                     <connections>
                         <outlet property="postContext" destination="yUv-Pz-Zrp" id="J5N-D6-AZ4"/>
                         <outlet property="postImg" destination="EVb-g0-Rrm" id="sb1-sd-koW"/>

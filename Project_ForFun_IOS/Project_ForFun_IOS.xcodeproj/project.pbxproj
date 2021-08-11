@@ -11,6 +11,7 @@
 		0A04444C26BBC7D900897819 /* ChatMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A04444B26BBC7D900897819 /* ChatMsgVC.swift */; };
 		0A77DA5226ADAD2700849D50 /* CityAreaUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77DA5126ADAD2700849D50 /* CityAreaUtil.swift */; };
 		0A7B0C6126AFB847000C9A5E /* PublishDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */; };
+		0A8EAA7926C18FA6007C6804 /* CustomerServiceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8EAA7826C18FA6007C6804 /* CustomerServiceDetailVC.swift */; };
 		0A918CB626B7901800120162 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0A918CB526B7901800120162 /* SDWebImage */; };
 		0A918CB926B7904900120162 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A918CB826B7904900120162 /* SnapKit */; };
 		0A918CBE26B7919F00120162 /* ZPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CBB26B7919F00120162 /* ZPageControl.swift */; };
@@ -20,6 +21,9 @@
 		0A918CC426B7EA2400120162 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CC326B7EA2400120162 /* Gender.swift */; };
 		0A918CC626B7EF5800120162 /* HouseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A918CC526B7EF5800120162 /* HouseType.swift */; };
 		0AA58E2E26AD568800CCE8A4 /* PublishListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */; };
+		0AC4CA0B26C2E36A007AE7BC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4CA0A26C2E36A007AE7BC /* Colors.swift */; };
+		0ADE53C926BD949200430AAA /* CustomerServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE53C826BD949200430AAA /* CustomerServiceCell.swift */; };
+		0ADE53CC26BD94C500430AAA /* CustomerServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE53CB26BD94C500430AAA /* CustomerServiceVC.swift */; };
 		0AEB665426AE935E00F8CB76 /* PublishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB665326AE935E00F8CB76 /* PublishCell.swift */; };
 		443066BF26AD010100E918B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443066BE26AD010100E918B2 /* AppDelegate.swift */; };
 		443066C126AD010100E918B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443066C026AD010100E918B2 /* SceneDelegate.swift */; };
@@ -90,6 +94,7 @@
 		0A04444B26BBC7D900897819 /* ChatMsgVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMsgVC.swift; sourceTree = "<group>"; };
 		0A77DA5126ADAD2700849D50 /* CityAreaUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAreaUtil.swift; sourceTree = "<group>"; };
 		0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishDetailVC.swift; sourceTree = "<group>"; };
+		0A8EAA7826C18FA6007C6804 /* CustomerServiceDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceDetailVC.swift; sourceTree = "<group>"; };
 		0A918CBB26B7919F00120162 /* ZPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPageControl.swift; sourceTree = "<group>"; };
 		0A918CBC26B7919F00120162 /* ZCycleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCycleLayout.swift; sourceTree = "<group>"; };
 		0A918CBD26B7919F00120162 /* ZCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCycleView.swift; sourceTree = "<group>"; };
@@ -97,6 +102,9 @@
 		0A918CC326B7EA2400120162 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		0A918CC526B7EF5800120162 /* HouseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseType.swift; sourceTree = "<group>"; };
 		0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishListTVC.swift; sourceTree = "<group>"; };
+		0AC4CA0A26C2E36A007AE7BC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0ADE53C826BD949200430AAA /* CustomerServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceCell.swift; sourceTree = "<group>"; };
+		0ADE53CB26BD94C500430AAA /* CustomerServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceVC.swift; sourceTree = "<group>"; };
 		0AEB665326AE935E00F8CB76 /* PublishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCell.swift; sourceTree = "<group>"; };
 		443066BB26AD010100E918B2 /* Project_ForFun_IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project_ForFun_IOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		443066BE26AD010100E918B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +195,24 @@
 			path = ZCycle;
 			sourceTree = "<group>";
 		};
+		0ADE53C726BD936300430AAA /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */,
+				0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		0ADE53CA26BD949B00430AAA /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+				0ADE53CB26BD94C500430AAA /* CustomerServiceVC.swift */,
+				0A8EAA7826C18FA6007C6804 /* CustomerServiceDetailVC.swift */,
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
 		443066B226AD010100E918B2 = {
 			isa = PBXGroup;
 			children = (
@@ -225,13 +251,13 @@
 		443066E326AD02FC00E918B2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0ADE53CA26BD949B00430AAA /* CustomerService */,
+				0ADE53C726BD936300430AAA /* Publish */,
 				B6EA91E526B2FD5300D14659 /* Member */,
 				4430670F26AFAB8900E918B2 /* ChatMsgListTVC.swift */,
 				0A04444B26BBC7D900897819 /* ChatMsgVC.swift */,
 				443066F526AD1ADE00E918B2 /* SignInVC.swift */,
 				B68FC36E26AD2973001141D5 /* HomeVC.swift */,
-				0AA58E2D26AD568800CCE8A4 /* PublishListTVC.swift */,
-				0A7B0C6026AFB847000C9A5E /* PublishDetailVC.swift */,
 				9B53F00726BD9FEE00CC697A /* PostListDetailVC.swift */,
 				9B0D4D9D26BEF729007BFCAB /* PostListVC.swift */,
 			);
@@ -260,6 +286,7 @@
 				0A918CBA26B7919200120162 /* ZCycle */,
 				B68FC37226AD2E77001141D5 /* Bean */,
 				B68FC37026AD29D9001141D5 /* Menu.swift */,
+				0AC4CA0A26C2E36A007AE7BC /* Colors.swift */,
 				0A918CC326B7EA2400120162 /* Gender.swift */,
 				0A918CC526B7EF5800120162 /* HouseType.swift */,
 				B68FC35026AD220A001141D5 /* Common.swift */,
@@ -295,6 +322,7 @@
 				0AEB665326AE935E00F8CB76 /* PublishCell.swift */,
 				B627194E26BFCC1400DB3B15 /* ReportMemberCell.swift */,
 				0A918CC126B79A3100120162 /* CustomCollectionViewCell.swift */,
+				0ADE53C826BD949200430AAA /* CustomerServiceCell.swift */,
 				9B4CFB0426BCE76200EE0A79 /* PostCell.swift */,
 			);
 			path = Cell;
@@ -450,6 +478,7 @@
 				0A918CC426B7EA2400120162 /* Gender.swift in Sources */,
 				B6EA91E426B2F3A500D14659 /* MemberSearchListVC.swift in Sources */,
 				443066F626AD1ADE00E918B2 /* SignInVC.swift in Sources */,
+				0A8EAA7926C18FA6007C6804 /* CustomerServiceDetailVC.swift in Sources */,
 				0AEB665426AE935E00F8CB76 /* PublishCell.swift in Sources */,
 				4430670626AD471900E918B2 /* Post.swift in Sources */,
 				443066FC26AD411800E918B2 /* CustomerService.swift in Sources */,
@@ -471,7 +500,9 @@
 				0AA58E2E26AD568800CCE8A4 /* PublishListTVC.swift in Sources */,
 				0A918CC626B7EF5800120162 /* HouseType.swift in Sources */,
 				0A918CC026B7919F00120162 /* ZCycleView.swift in Sources */,
+				0ADE53C926BD949200430AAA /* CustomerServiceCell.swift in Sources */,
 				4430670226AD44D700E918B2 /* Area.swift in Sources */,
+				0AC4CA0B26C2E36A007AE7BC /* Colors.swift in Sources */,
 				0A918CC226B79A3100120162 /* CustomCollectionViewCell.swift in Sources */,
 				B6EA91E226B2ECD600D14659 /* HouseOwnerListVC.swift in Sources */,
 				443066BF26AD010100E918B2 /* AppDelegate.swift in Sources */,
@@ -483,6 +514,7 @@
 				B68FC35126AD220A001141D5 /* Common.swift in Sources */,
 				9B0D4D9E26BEF729007BFCAB /* PostListVC.swift in Sources */,
 				443066C926AD010100E918B2 /* Project_ForFun_IOS.xcdatamodeld in Sources */,
+				0ADE53CC26BD94C500430AAA /* CustomerServiceVC.swift in Sources */,
 				0A7B0C6126AFB847000C9A5E /* PublishDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
