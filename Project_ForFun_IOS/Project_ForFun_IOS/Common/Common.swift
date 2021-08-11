@@ -8,6 +8,9 @@ import FirebaseStorage
 // 模擬器
 let common_url = "http://127.0.0.1:8080/ForFun_DB/"
 
+// 威力實機(WIFI IP)
+//let common_url = "http://10.2.16.56:8080/ForFun_DB/"
+
 //送出請求
 func executeTask(_ url_server: URL, _ requestParam: [String: Any], completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
     // requestParam值為Any就必須使用JSONSerialization.data()，而非JSONEncoder.encode()
@@ -28,6 +31,15 @@ func showSimpleAlert(message: String, viewController: UIViewController) {
     /* 呼叫present()才會跳出Alert Controller */
     viewController.present(alertController, animated: true, completion:nil)
 }
+
+func showConfirmAlert(message: String, viewController: UIViewController, completionHandler:@escaping (UIAlertAction) -> Void) {
+    let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
+    let ok = UIAlertAction(title: "確定", style: .default, handler: completionHandler)
+    alertController.addAction(ok)
+    /* 呼叫present()才會跳出Alert Controller */
+    viewController.present(alertController, animated: true, completion:nil)
+}
+
 //清除Firebase電話認證
 func logOut(){
     guard let _ = try? Auth.auth().signOut()

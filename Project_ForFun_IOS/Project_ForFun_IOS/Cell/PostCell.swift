@@ -13,5 +13,6 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postReport: UILabel!
     @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var postBoardId: UILabel!
     
 }
