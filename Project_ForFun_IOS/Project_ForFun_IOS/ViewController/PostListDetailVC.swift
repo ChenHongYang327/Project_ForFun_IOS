@@ -43,8 +43,31 @@ class PostListDetailVC: UIViewController {
     }
     
     @IBAction func btNoPass(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        showAlert(message: "是否確定通過？", viewController: self) {
+            let url = URL(string: common_url + "DiscussionBoardController")
+            
+            let requestParam: [String : Any] = ["action" : "getAllNotReport",
+                                "reportId" : self.report!.reportId]
+            
+            executeTask(url!, requestParam) { data, resp, error in
+                if let data = data {
+                    do {
+                        // 解析資料
+                        let resp = try JSONDecoder().decode(Int.self, from: data)
+                        if resp != 0 {
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+        }
     }
+    
+    
     @IBAction func btPassDelete(_ sender: Any) {
         
         showAlert(message: "是否確定刪除？", viewController: self) {
