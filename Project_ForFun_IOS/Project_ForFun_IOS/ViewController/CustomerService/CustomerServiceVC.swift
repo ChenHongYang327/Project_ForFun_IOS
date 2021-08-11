@@ -52,6 +52,8 @@ class CustomerServiceVC: UIViewController {
                     // 設定轉換的日期格式
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MMM dd, yyyy hh:mm:ss a"
+                    //設定為英文
+                    dateFormatter.locale = Locale(identifier: "en_US")
                     
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)

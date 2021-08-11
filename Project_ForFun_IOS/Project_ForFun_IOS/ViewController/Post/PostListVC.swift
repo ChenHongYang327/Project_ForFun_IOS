@@ -12,12 +12,15 @@ class PostListVC: UITableViewController {
     
     var postList = [Post]()
     var reportList = [Report]()
+    var searchposts=[Post]()
+    @IBOutlet weak var searchBar: UISearchBar!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self
     }
+    
     
     func tableViewAddRefreshControl(){
         let refreshControl = UIRefreshControl()
@@ -29,7 +32,6 @@ class PostListVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         //取得貼文資料
         getPostData()
-        
     }
 
     // MARK: - Table view data source
@@ -41,8 +43,7 @@ class PostListVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print(postList.count)
-        return postList.count
+        return searchposts.count
     }
     
     
@@ -51,7 +52,7 @@ class PostListVC: UITableViewController {
         // 取得貼文名稱
        
        
-        let postImgPath = postList[indexPath.row].postImg
+        let postImgPath = searchposts[indexPath.row].postImg
     
         let reportItem = reportList[indexPath.row].reportClass
         print("test:\(reportItem)")
@@ -70,8 +71,8 @@ class PostListVC: UITableViewController {
         }
             
         
-        cell.postTitle.text = postList[indexPath.row].postTitle
-        cell.postBoardId.text = postList[indexPath.row].boardId
+        cell.postTitle.text = searchposts[indexPath.row].postTitle
+        cell.postBoardId.text = searchposts[indexPath.row].boardId
         
         // 處理圖片
         cell.postImage.image = UIImage(named: "noimage.jpg")
@@ -83,12 +84,12 @@ class PostListVC: UITableViewController {
         return cell
     }
     
-    
+
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 點擊跳頁
         let postDetail = storyboard?.instantiateViewController(identifier: "PostDetail") as! PostListDetailVC
-        postDetail.post = postList[indexPath.row]
+        postDetail.post = searchposts[indexPath.row]
         postDetail.report = reportList[indexPath.row]
         self.navigationController?.pushViewController(postDetail, animated: true)
         
@@ -104,11 +105,13 @@ class PostListVC: UITableViewController {
         var requestParam = ["action" : "getAllReport"]
         executeTask(url!, requestParam) { data, resp, error in
             if let data = data {
+            
                 do {
-                    
                     // 設定轉換的日期格式
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MMM dd, yyyy hh:mm:ss a"
+                    //設定為英文
+                    dateFormatter.locale = Locale(identifier: "en_US")
                     
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
@@ -119,6 +122,7 @@ class PostListVC: UITableViewController {
                     self.reportList = try decoder.decode([Report].self, from: (respDic["reportList"]?.data(using: .utf8))!)
                     
                     self.postList = try decoder.decode([Post].self, from: (respDic["postList"]?.data(using: .utf8))!)
+                    self.searchposts = self.postList
                     
                     
                     // 取得資料後刷新畫面
@@ -138,4 +142,24 @@ class PostListVC: UITableViewController {
         imageRef.getData(maxSize: 10 * 1024 * 1024, completion: completion)
     }
     
+}
+
+extension PostListVC : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // 如果搜尋條件為空字串，就顯示原始資料；否則就顯示搜尋後結果
+        if searchText.isEmpty {
+            searchposts = postList
+        } else {
+            // 搜尋原始資料內有無包含關鍵字(不區別大小寫)
+            searchposts = postList.filter({ post in
+                post.postTitle!.uppercased().contains(searchText.uppercased())
+            })
+        }
+        tableView.reloadData()
+    }
+    
+    // 點擊鍵盤上的Search按鈕時將鍵盤隱藏
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

@@ -251,6 +251,7 @@
 		443066E326AD02FC00E918B2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9B5F091026C399A0006A63DF /* Post */,
 				0ADE53CA26BD949B00430AAA /* CustomerService */,
 				0ADE53C726BD936300430AAA /* Publish */,
 				B6EA91E526B2FD5300D14659 /* Member */,
@@ -258,8 +259,6 @@
 				0A04444B26BBC7D900897819 /* ChatMsgVC.swift */,
 				443066F526AD1ADE00E918B2 /* SignInVC.swift */,
 				B68FC36E26AD2973001141D5 /* HomeVC.swift */,
-				9B53F00726BD9FEE00CC697A /* PostListDetailVC.swift */,
-				9B0D4D9D26BEF729007BFCAB /* PostListVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -278,6 +277,15 @@
 				443066F326AD1A1C00E918B2 /* OtherFunctionStoryboard.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9B5F091026C399A0006A63DF /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				9B0D4D9D26BEF729007BFCAB /* PostListVC.swift */,
+				9B53F00726BD9FEE00CC697A /* PostListDetailVC.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		B68FC34F26AD21FF001141D5 /* Common */ = {
