@@ -46,16 +46,16 @@
                                             <rect key="frame" x="110" y="28" width="250" height="24"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="標題：" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jF5-gi-j1e">
-                                                    <rect key="frame" x="0.0" y="0.0" width="61.333333333333336" height="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="61.329999999999998" id="ozf-en-HxK"/>
+                                                        <constraint firstAttribute="width" constant="63.330001831054688" id="ozf-en-HxK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZv-r4-fWO">
-                                                    <rect key="frame" x="62.333333333333357" y="0.0" width="187.66666666666663" height="24"/>
+                                                    <rect key="frame" x="64.333333333333357" y="0.0" width="185.66666666666663" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -125,6 +125,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="文章審核" id="j0h-NP-s4A"/>
+                    <connections>
+                        <outlet property="searchBar" destination="cjZ-7U-Cdm" id="0js-2m-5H1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FjK-8B-KIR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
