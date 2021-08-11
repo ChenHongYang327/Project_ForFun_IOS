@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -119,64 +118,64 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSG-13-UXV">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暱稱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pw-Dq-7Zg">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暱        稱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pw-Dq-7Zg">
+                                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o66-3A-OtH">
-                                                <rect key="frame" x="116" y="0.0" width="215" height="20.5"/>
+                                                <rect key="frame" x="99.5" y="0.0" width="231.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="6Pw-Dq-7Zg" firstAttribute="width" secondItem="pSG-13-UXV" secondAttribute="width" multiplier="0.35" id="5qm-T3-UYs"/>
-                                            <constraint firstItem="o66-3A-OtH" firstAttribute="width" secondItem="pSG-13-UXV" secondAttribute="width" multiplier="0.65" id="QgF-yi-F6a"/>
+                                            <constraint firstItem="6Pw-Dq-7Zg" firstAttribute="width" secondItem="pSG-13-UXV" secondAttribute="width" multiplier="0.3" id="5qm-T3-UYs"/>
+                                            <constraint firstItem="o66-3A-OtH" firstAttribute="width" secondItem="pSG-13-UXV" secondAttribute="width" multiplier="0.7" id="QgF-yi-F6a"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-l0-LKz">
                                         <rect key="frame" x="0.0" y="28.5" width="331" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手機號碼：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-xR-tdf">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bX-gt-uc8">
-                                                <rect key="frame" x="116" y="0.0" width="215" height="20.5"/>
+                                                <rect key="frame" x="99.5" y="0.0" width="231.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="4bX-gt-uc8" firstAttribute="width" secondItem="ccd-l0-LKz" secondAttribute="width" multiplier="0.65" id="Ll2-NI-Sn3"/>
-                                            <constraint firstItem="HcM-xR-tdf" firstAttribute="width" secondItem="ccd-l0-LKz" secondAttribute="width" multiplier="0.35" id="V9b-gX-4xT"/>
+                                            <constraint firstItem="4bX-gt-uc8" firstAttribute="width" secondItem="ccd-l0-LKz" secondAttribute="width" multiplier="0.7" id="Ll2-NI-Sn3"/>
+                                            <constraint firstItem="HcM-xR-tdf" firstAttribute="width" secondItem="ccd-l0-LKz" secondAttribute="width" multiplier="0.3" id="V9b-gX-4xT"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-Wm-ZVF">
                                         <rect key="frame" x="0.0" y="57" width="331" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail信箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-ja-sdf">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電子郵件：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-ja-sdf">
+                                                <rect key="frame" x="0.0" y="0.0" width="99.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08R-9O-Apa">
-                                                <rect key="frame" x="116" y="0.0" width="215" height="20.5"/>
+                                                <rect key="frame" x="99.5" y="0.0" width="231.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="ZFA-ja-sdf" firstAttribute="width" secondItem="m6n-Wm-ZVF" secondAttribute="width" multiplier="0.35" id="2ul-Hb-1GN"/>
-                                            <constraint firstItem="08R-9O-Apa" firstAttribute="width" secondItem="m6n-Wm-ZVF" secondAttribute="width" multiplier="0.65" id="dsh-eb-guO"/>
+                                            <constraint firstItem="ZFA-ja-sdf" firstAttribute="width" secondItem="m6n-Wm-ZVF" secondAttribute="width" multiplier="0.3" id="2ul-Hb-1GN"/>
+                                            <constraint firstItem="08R-9O-Apa" firstAttribute="width" secondItem="m6n-Wm-ZVF" secondAttribute="width" multiplier="0.7" id="dsh-eb-guO"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F1Y-Nm-8dW">

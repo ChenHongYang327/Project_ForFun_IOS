@@ -72,17 +72,15 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let menu = homeMenus[indexPath.row]
         //點擊跳轉
         //
-        if(menu.name=="會員列表"){
-        let storyboard = UIStoryboard(name: "MemberStoryboard", bundle: nil)
-        //沒搜尋
-//      let memberListVC = storyboard.instantiateViewController(withIdentifier: "memberListVC") as! MemberListVC
-//      self.navigationController?.pushViewController(memberListVC, animated: true)
-        //有搜尋
-        let memberSearchListVC = storyboard.instantiateViewController(withIdentifier: "memberSearchListVC") as! MemberSearchListVC
-        self.navigationController?.pushViewController(memberSearchListVC, animated: true)
-        }
-        //
-        else if(menu.name=="登出"){
+        if (menu.name=="會員列表") {
+            let storyboard = UIStoryboard(name: "MemberStoryboard", bundle: nil)
+            //沒搜尋
+    //      let memberListVC = storyboard.instantiateViewController(withIdentifier: "memberListVC") as! MemberListVC
+    //      self.navigationController?.pushViewController(memberListVC, animated: true)
+            //有搜尋
+            let memberSearchListVC = storyboard.instantiateViewController(withIdentifier: "memberSearchListVC") as! MemberSearchListVC
+            self.navigationController?.pushViewController(memberSearchListVC, animated: true)
+        } else if(menu.name=="登出") {
             let controller = UIAlertController(title: nil, message: "是否確定要登出?", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
                 logOut()
@@ -101,14 +99,14 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             self.navigationController?.pushViewController(publishListTVC, animated: true)
         }
         else if(menu.name=="房東證審核"){
-        let storyboard = UIStoryboard(name: "HouseOwnerStoryboard", bundle: nil)
-        let houseOwnerListVC = storyboard.instantiateViewController(withIdentifier: "houseOwnerListVC") as! HouseOwnerListVC
-        self.navigationController?.pushViewController(houseOwnerListVC, animated: true)
+            let storyboard = UIStoryboard(name: "HouseOwnerStoryboard", bundle: nil)
+            let houseOwnerListVC = storyboard.instantiateViewController(withIdentifier: "houseOwnerListVC") as! HouseOwnerListVC
+            self.navigationController?.pushViewController(houseOwnerListVC, animated: true)
         }
         else if(menu.name=="留言審核"){
-        let storyboard = UIStoryboard(name: "ChatMsgStoryboard", bundle: nil)
-        let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "ChatMsgListTVC") as! ChatMsgListTVC
-        self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
+            let storyboard = UIStoryboard(name: "ChatMsgStoryboard", bundle: nil)
+            let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "ChatMsgListTVC") as! ChatMsgListTVC
+            self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
         } else if (menu.name == "客服回應") {
             let storyboard = UIStoryboard(name: "CustomerServiceStoryboard", bundle: nil)
             let customerServiceVC = storyboard.instantiateViewController(identifier: "customerServiceVC") as! CustomerServiceVC
@@ -121,7 +119,9 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
            let storyboard = UIStoryboard(name: "ReportMemberStoryboard", bundle: nil)
            let chatMsgListTVC = storyboard.instantiateViewController(withIdentifier: "reportMemberListVC") as! ReportMemberListVC
            self.navigationController?.pushViewController(chatMsgListTVC, animated: true)
-       }
+        } else if(menu.name == "其他") {
+            showSimpleAlert(message: "敬請期待", viewController: self)
+        }
     }
     
     func loadMenu()->[Menu]{

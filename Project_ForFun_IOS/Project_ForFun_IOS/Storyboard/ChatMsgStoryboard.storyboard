@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ChatMsgList-->
+        <!--留言審核-->
         <scene sceneID="o94-iW-eVG">
             <objects>
                 <tableViewController storyboardIdentifier="ChatMsgListTVC" id="07r-c4-ZEH" customClass="ChatMsgListTVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,13 +99,13 @@
                             <outlet property="delegate" destination="07r-c4-ZEH" id="I0g-05-sJD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ChatMsgList" id="aaN-WA-Klk"/>
+                    <navigationItem key="navigationItem" title="留言審核" id="aaN-WA-Klk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkR-Ad-HQj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="331.8840579710145" y="28.794642857142854"/>
         </scene>
-        <!--ChatMsg Detil-->
+        <!--留言審核-->
         <scene sceneID="1wy-28-k2R">
             <objects>
                 <viewController storyboardIdentifier="ChatMsgVC" id="jfJ-CV-uPu" customClass="ChatMsgVC" customModule="Project_ForFun_IOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -245,7 +245,7 @@
                             <constraint firstItem="lqN-XT-nsF" firstAttribute="leading" secondItem="r7S-L2-vxJ" secondAttribute="leadingMargin" id="vho-y8-8Qn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ChatMsg Detil" id="tKZ-YX-PRg"/>
+                    <navigationItem key="navigationItem" title="留言審核" id="tKZ-YX-PRg"/>
                     <connections>
                         <outlet property="imgHead" destination="Atk-Wl-z5J" id="qEu-bN-dE3"/>
                         <outlet property="tcmsgOrginal" destination="OHI-8i-XoW" id="iBc-RG-Zcs"/>
