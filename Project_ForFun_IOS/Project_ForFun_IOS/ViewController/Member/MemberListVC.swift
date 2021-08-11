@@ -17,6 +17,7 @@ class MemberListVC: UITableViewController {
     }
     //返回刷新
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
        getAllMember()
     }
 
@@ -33,7 +34,7 @@ class MemberListVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath) as! MemberCell
         cell.nameMemberCell.text=member.nameL+member.nameF
         cell.phoneMemberCell.text="0\(member.phone)"
-        cell.ivMemberCell.image = UIImage(named: "noimage")
+        cell.ivMemberCell.image = UIImage(named: "noimage.jpg")
         getImage(url: member.headshot) { data in
             cell.ivMemberCell.image = UIImage(data: data!)
         }
@@ -73,8 +74,8 @@ class MemberListVC: UITableViewController {
             }
             //檢查伺服器連線狀態
             if let httpResponse = resp as? HTTPURLResponse {
-                print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                 if(httpResponse.statusCode != 200){
+                    print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                     DispatchQueue.main.async {
                     showSimpleAlert(message: "請嘗試將伺服器重新啟動", viewController: self)
                     }

@@ -56,6 +56,14 @@
             </objects>
             <point key="canvasLocation" x="669" y="44"/>
         </scene>
+        <!--ReportMemberStoryboard-->
+        <scene sceneID="zet-3F-ho1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ReportMemberStoryboard" id="7Px-ps-kQ9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYK-Nd-GKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="678" y="125"/>
+        </scene>
         <!--MemberStoryboard-->
         <scene sceneID="qiN-Qe-oSf">
             <objects>

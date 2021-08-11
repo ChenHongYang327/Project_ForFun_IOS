@@ -41,7 +41,7 @@ class MemberDatailVC: UIViewController {
                 ivHeadshot.image=UIImage(data: data!)
             }
             //防止圖片未載入完成就點選就再抓一次圖
-            else if(data == nil||ivHeadshot.image==UIImage(named: "noimage.jpg")){
+            else if(data == nil){
 //                print("圖片未載入完成")
                 //從FireStore下載圖片
                 getImage(url: member.headshot) { data in
@@ -231,8 +231,8 @@ class MemberDatailVC: UIViewController {
                 return
             }
             if let httpResponse = resp as? HTTPURLResponse {
-                print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                 if(httpResponse.statusCode != 200){
+                    print("與伺服器連線狀態碼:\(httpResponse.statusCode)")
                     DispatchQueue.main.async {
                     showSimpleAlert(message: "請嘗試將伺服器重新啟動", viewController: self)
                     }

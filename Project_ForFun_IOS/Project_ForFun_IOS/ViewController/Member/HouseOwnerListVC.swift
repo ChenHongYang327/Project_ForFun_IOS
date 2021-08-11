@@ -34,17 +34,8 @@ class HouseOwnerListVC: UITableViewController {
         cell.nameMemberCell.text=member.nameL+member.nameF
         cell.phoneMemberCell.text="0\(member.phone)"
         cell.ivMemberCell.image = UIImage(named: "noimage")
-
-        //從FireStore下載圖片
-        let imageRef = Storage.storage().reference().child(member.headshot)
-        // 設定最大可下載10M
-        imageRef.getData(maxSize: 10 * 1024 * 1024) { (data, error) in
-            if let imageData = data {
-                cell.ivMemberCell.image = UIImage(data: imageData)
-            } else {
-                cell.ivMemberCell.image = UIImage(named: "noimage")
-                print(error != nil ? error!.localizedDescription : "Downloading error!")
-            }
+        getImage(url: member.headshot) { data in
+            cell.ivMemberCell.image = UIImage(data: data!)
         }
         return cell
     }
@@ -60,7 +51,7 @@ class HouseOwnerListVC: UITableViewController {
         houseOwnerDetailVC.member=member
         //將前一頁的data(頭貼)帶到下一頁減少抓圖次數
         let cell=tableView.cellForRow(at: indexPath) as! MemberCell
-        houseOwnerDetailVC.data=cell.ivMemberCell.image?.jpegData(compressionQuality: CGFloat(100))
+        houseOwnerDetailVC.data=cell.ivMemberCell.image?.jpegData(compressionQuality: CGFloat(1.0))
         //跳轉
         self.navigationController?.pushViewController( houseOwnerDetailVC, animated: true)
     }
