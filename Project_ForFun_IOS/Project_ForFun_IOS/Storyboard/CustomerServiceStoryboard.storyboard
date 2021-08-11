@@ -41,6 +41,11 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Zd2-0U-sIy">
+                                    <rect key="frame" x="0.0" y="149.00000034679067" width="414" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CustomerServiceCell" id="T4v-Ij-bxA" customClass="CustomerServiceCell" customModule="Project_ForFun_IOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="100"/>
