@@ -25,6 +25,7 @@ class CustomerServiceVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getCustomerServiceData()
     }
 

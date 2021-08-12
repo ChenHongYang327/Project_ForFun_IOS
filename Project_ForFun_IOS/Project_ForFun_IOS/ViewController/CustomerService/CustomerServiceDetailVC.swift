@@ -13,6 +13,8 @@ class CustomerServiceDetailVC: UIViewController {
     @IBOutlet weak var eMail: UILabel!
     @IBOutlet weak var reply: UITextView!
     @IBOutlet weak var message: UITextView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingAnimation: UIActivityIndicatorView!
     
     var customerServise : CustomerServise?
     
@@ -53,6 +55,10 @@ class CustomerServiceDetailVC: UIViewController {
     }
     
     @IBAction func sendReply(_ sender: Any) {
+        // 顯示loading畫面
+        loadingAnimation.startAnimating()
+        loadingView.isHidden = false
+        
         let reply = reply.text ?? ""
         
         let url = URL(string: common_url + "CUSTOMER_SERVICE_Servlet")
@@ -71,6 +77,10 @@ class CustomerServiceDetailVC: UIViewController {
                        result == 1 {
                         // 取得資料後刷新畫面
                         DispatchQueue.main.async {
+                            // 隱藏loading畫面
+                            self.loadingAnimation.stopAnimating()
+                            self.loadingView.isHidden = true
+                            
                             showConfirmAlert(message: "發送成功", viewController: self) { uiAlertAction in
                                 self.navigationController?.popViewController(animated: true)
                             }
@@ -78,6 +88,10 @@ class CustomerServiceDetailVC: UIViewController {
                     } else {
                         // 取得資料後刷新畫面
                         DispatchQueue.main.async {
+                            // 隱藏loading畫面
+                            self.loadingAnimation.stopAnimating()
+                            self.loadingView.isHidden = true
+                            
                             showConfirmAlert(message: "發送失敗", viewController: self) { uiAlertAction in
                                 self.navigationController?.popViewController(animated: true)
                             }

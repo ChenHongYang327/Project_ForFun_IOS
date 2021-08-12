@@ -30,6 +30,7 @@ class PublishListTVC: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // 取得刊登資料
         getPublishData()
     }
