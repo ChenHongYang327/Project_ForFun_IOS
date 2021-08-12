@@ -63,7 +63,7 @@ class PostListVC: UITableViewController {
         case 1:
             cell.postReport.text = "謾罵他人"
         case 2:
-            cell.postReport.text = "不當檢舉"
+            cell.postReport.text = "不當留言"
         case 3:
             cell.postReport.text = "內容誇大"
         default:

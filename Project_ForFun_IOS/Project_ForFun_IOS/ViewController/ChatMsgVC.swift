@@ -30,13 +30,13 @@ class ChatMsgVC: UIViewController {
         tvContent.text = reportChatMsg?.message
         tcmsgOrginal.text = comment.commentMsg
         
-        switch reportChatMsg?.type {
+        switch reportChatMsg?.reportClass {
         case 0:
             tvType.text = "冒充他人"
         case 1:
             tvType.text = "謾罵他人"
         case 2:
-            tvType.text = "不當檢舉"
+            tvType.text = "不當留言"
         case 3:
             tvType.text = "內容誇大"
         case 4:

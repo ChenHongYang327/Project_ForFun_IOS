@@ -47,13 +47,13 @@ class ChatMsgListTVC: UITableViewController {
         cell.tvName.text = member.nameL+member.nameF
         cell.tvContent.text = reportList.message
         
-        switch reportList.type {
+        switch reportList.reportClass {
         case 0:
             cell.tvType.text = "冒充他人"
         case 1:
             cell.tvType.text = "謾罵他人"
         case 2:
-            cell.tvType.text = "不當檢舉"
+            cell.tvType.text = "不當留言"
         case 3:
             cell.tvType.text = "內容誇大"
         case 4:
