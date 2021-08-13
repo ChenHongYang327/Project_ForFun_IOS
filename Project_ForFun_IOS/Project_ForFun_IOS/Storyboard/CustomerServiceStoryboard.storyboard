@@ -259,30 +259,12 @@
                                     <constraint firstItem="ccd-l0-LKz" firstAttribute="width" secondItem="3OD-1M-9Ip" secondAttribute="width" id="nBP-aZ-D5A"/>
                                 </constraints>
                             </stackView>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-OW-jsR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="k80-Pl-SNw">
-                                        <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                        <color key="color" red="0.91766160730000002" green="0.96145135159999995" blue="0.91764301059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="k80-Pl-SNw" firstAttribute="centerX" secondItem="dJj-OW-jsR" secondAttribute="centerX" id="5m4-02-TKd"/>
-                                    <constraint firstItem="k80-Pl-SNw" firstAttribute="centerY" secondItem="dJj-OW-jsR" secondAttribute="centerY" id="nap-Kl-bcF"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R1W-s9-2Fo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dJj-OW-jsR" firstAttribute="top" secondItem="Pkg-Wy-teV" secondAttribute="top" id="Lug-5p-KOl"/>
                             <constraint firstItem="3OD-1M-9Ip" firstAttribute="width" secondItem="R1W-s9-2Fo" secondAttribute="width" multiplier="0.8" id="M4d-R0-IAl"/>
-                            <constraint firstItem="dJj-OW-jsR" firstAttribute="leading" secondItem="Pkg-Wy-teV" secondAttribute="leading" id="NCs-nK-7P6"/>
-                            <constraint firstAttribute="trailing" secondItem="dJj-OW-jsR" secondAttribute="trailing" id="Ylc-1B-aCC"/>
                             <constraint firstItem="3OD-1M-9Ip" firstAttribute="top" secondItem="Pkg-Wy-teV" secondAttribute="bottom" multiplier="0.2" id="gfw-s2-PIk"/>
-                            <constraint firstAttribute="bottom" secondItem="dJj-OW-jsR" secondAttribute="bottom" id="h9A-RL-fjG"/>
                             <constraint firstItem="3OD-1M-9Ip" firstAttribute="centerX" secondItem="Pkg-Wy-teV" secondAttribute="centerX" id="tbJ-fy-rgy"/>
                         </constraints>
                         <connections>
@@ -307,6 +289,22 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYo-TR-bgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view alpha="0.5" contentMode="scaleToFill" id="dJj-OW-jsR">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="k80-Pl-SNw">
+                            <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            <color key="color" red="0.91766160730000002" green="0.96145135159999995" blue="0.91764301059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="NXU-iA-cXP"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="k80-Pl-SNw" firstAttribute="centerX" secondItem="dJj-OW-jsR" secondAttribute="centerX" id="5m4-02-TKd"/>
+                        <constraint firstItem="k80-Pl-SNw" firstAttribute="centerY" secondItem="dJj-OW-jsR" secondAttribute="centerY" id="nap-Kl-bcF"/>
+                    </constraints>
+                </view>
                 <tapGestureRecognizer id="JWm-gC-sUt">
                     <connections>
                         <action selector="clickReply:" destination="hxp-5O-J2y" id="L6r-YX-9UN"/>

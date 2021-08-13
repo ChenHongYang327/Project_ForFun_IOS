@@ -1,0 +1,18 @@
+
+/* Class = "UITextField"; placeholder = "驗證碼"; ObjectID = "SM7-2w-pVc"; */
+"SM7-2w-pVc.placeholder" = "驗證碼";
+
+/* Class = "UIButton"; normalTitle = "登入"; ObjectID = "b74-l9-yeW"; */
+"b74-l9-yeW.normalTitle" = "登入";
+
+/* Class = "UINavigationItem"; title = "首頁"; ObjectID = "fsF-jb-Szs"; */
+"fsF-jb-Szs.title" = "首頁";
+
+/* Class = "UIButton"; normalTitle = "發送驗證碼"; ObjectID = "gXr-rL-5f9"; */
+"gXr-rL-5f9.normalTitle" = "發送驗證碼";
+
+/* Class = "UITextField"; placeholder = "手機號碼"; ObjectID = "iap-TA-PoG"; */
+"iap-TA-PoG.placeholder" = "手機號碼";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jcV-6J-1sO"; */
+"jcV-6J-1sO.text" = "Label";

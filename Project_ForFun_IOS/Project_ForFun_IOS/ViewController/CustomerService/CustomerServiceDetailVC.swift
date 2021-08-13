@@ -32,7 +32,14 @@ class CustomerServiceDetailVC: UIViewController {
         reply.backgroundColor = primaryColor
         addKeyboardObserver()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // 設定為全畫面
+        loadingView.bounds.size = view.window?.bounds.size ?? .zero
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -57,7 +64,7 @@ class CustomerServiceDetailVC: UIViewController {
     @IBAction func sendReply(_ sender: Any) {
         // 顯示loading畫面
         loadingAnimation.startAnimating()
-        loadingView.isHidden = false
+        view.window?.addSubview(loadingView)
         
         let reply = reply.text ?? ""
         
@@ -79,7 +86,7 @@ class CustomerServiceDetailVC: UIViewController {
                         DispatchQueue.main.async {
                             // 隱藏loading畫面
                             self.loadingAnimation.stopAnimating()
-                            self.loadingView.isHidden = true
+                            self.loadingView.removeFromSuperview()
                             
                             showConfirmAlert(message: "發送成功", viewController: self) { uiAlertAction in
                                 self.navigationController?.popViewController(animated: true)
@@ -90,7 +97,7 @@ class CustomerServiceDetailVC: UIViewController {
                         DispatchQueue.main.async {
                             // 隱藏loading畫面
                             self.loadingAnimation.stopAnimating()
-                            self.loadingView.isHidden = true
+                            self.loadingView.removeFromSuperview()
                             
                             showConfirmAlert(message: "發送失敗", viewController: self) { uiAlertAction in
                                 self.navigationController?.popViewController(animated: true)

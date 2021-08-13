@@ -36,7 +36,7 @@ class MemberDatailVC: UIViewController {
         tfPhone.isHidden=true
         //開啟編輯按鈕
         navigationItem.rightBarButtonItem = editButtonItem
-        editButtonItem.title="編輯"
+   //     editButtonItem.title="編輯"
             if data != nil{
                 ivHeadshot.image=UIImage(data: data!)
             }
@@ -121,7 +121,7 @@ class MemberDatailVC: UIViewController {
         if(editing==true){
         //停止textfield的Focus(?)
         tfPhone.resignFirstResponder()
-        editButtonItem.title="完成"
+       // editButtonItem.title="完成"
         tfPhone.isHidden=false
         lbPhone.text="電話:"
         tfPhone.text="0\(member.phone)"
@@ -134,19 +134,19 @@ class MemberDatailVC: UIViewController {
             tfPhone.resignFirstResponder()
             guard let inputPhone=tfPhone.text?.trimmingCharacters(in: .whitespacesAndNewlines) else{
                 showSimpleAlert(message: "電話號碼不可為空", viewController: self)
-                editButtonItem.title="完成"
+           //     editButtonItem.title="完成"
                 setEditing(true, animated: false) //會重新呼叫setEditing
                 return
             }
             if(inputPhone.isEmpty){
                 showSimpleAlert(message: "電話號碼不可為空", viewController: self)
-                editButtonItem.title="完成"
+           //     editButtonItem.title="完成"
                 setEditing(true, animated: false) //會重新呼叫setEditing
                 return
             }
             else if(inputPhone.count != 10){
                 showSimpleAlert(message: "電話號碼格式錯誤", viewController: self)
-                editButtonItem.title="完成"
+            //    editButtonItem.title="完成"
                 setEditing(true, animated: false) //會重新呼叫setEditing
                 return
             }
@@ -159,7 +159,7 @@ class MemberDatailVC: UIViewController {
                 if(updateState){
                     DispatchQueue.main.async {
                     //恢復顯示
-                    self.editButtonItem.title="編輯"
+                 //   self.editButtonItem.title="編輯"
                     self.tfPhone.isHidden=true
                     self.btRole.isEnabled=false
                     self.btType.isEnabled=false
@@ -175,7 +175,7 @@ class MemberDatailVC: UIViewController {
                 }
                 else{
                     DispatchQueue.main.async {
-                    self.editButtonItem.title="完成"
+                   // self.editButtonItem.title="完成"
                     }
                 }
                 
@@ -251,7 +251,7 @@ class MemberDatailVC: UIViewController {
                         completionHandler(false)
                         DispatchQueue.main.async {
                         showSimpleAlert(message: "更新失敗", viewController: self)
-                        self.editButtonItem.title="編輯"
+                       // self.editButtonItem.title="編輯"
                             self.setEditing(true, animated: true)
                         }
                     }
@@ -259,7 +259,7 @@ class MemberDatailVC: UIViewController {
                         completionHandler(false)
                         DispatchQueue.main.async {
                         showSimpleAlert(message: "電話號碼已被使用", viewController: self)
-                        self.editButtonItem.title="編輯"
+                    //    self.editButtonItem.title="編輯"
                             self.setEditing(true, animated: true)
                         }
                     }
