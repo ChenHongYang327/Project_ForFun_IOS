@@ -26,12 +26,14 @@ class CityAreaUtil {
                     // 解析資料
                     let respDic = try JSONDecoder().decode([String : String].self, from: data)
 //                    let respDic = try JSONSerialization.jsonObject(with: data) as? [String : String]
-//                    print(respDic!["city"])
-//                    print(respDic!["area"])
+//                    print(respDic["city"])
+//                    print(respDic["area"])
                     
                     // 設定轉換的日期格式
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MMM dd, yyyy hh:mm:ss a"
+                    //設定為英文
+                    dateFormatter.locale = Locale(identifier: "en_US")
                     
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
