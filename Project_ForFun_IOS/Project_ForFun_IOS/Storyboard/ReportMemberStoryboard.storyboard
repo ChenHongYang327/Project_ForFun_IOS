@@ -293,6 +293,7 @@
                         <outlet property="ivIdB" destination="WzO-fK-cUc" id="spu-1b-3hM"/>
                         <outlet property="ivIdF" destination="vAp-mK-Ohe" id="4Wy-dS-928"/>
                         <outlet property="lbAddress" destination="4j5-cF-zqi" id="21I-xY-Uiv"/>
+                        <outlet property="lbGoodPeople" destination="mYr-dz-1h4" id="SWU-fE-79a"/>
                         <outlet property="lbId" destination="y5i-Kb-oqI" id="vxc-OJ-69V"/>
                         <outlet property="lcIdB" destination="YfR-gx-ayO" id="phh-zS-ies"/>
                         <outlet property="lcIdF" destination="V0O-mj-sCT" id="ZvY-1z-NNt"/>

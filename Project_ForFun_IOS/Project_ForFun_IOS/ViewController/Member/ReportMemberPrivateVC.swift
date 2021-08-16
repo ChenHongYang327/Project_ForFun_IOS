@@ -17,6 +17,7 @@ class ReportMemberPrivateVC: UIViewController {
     @IBOutlet var lcIdF: UILongPressGestureRecognizer!
     @IBOutlet var lcIdB: UILongPressGestureRecognizer!
     @IBOutlet var lcIdG: UILongPressGestureRecognizer!
+    @IBOutlet weak var lbGoodPeople: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,9 @@ class ReportMemberPrivateVC: UIViewController {
         }
         }
         else{
-            self.ivGoodPeople.image=UIImage(named: "noimage.jpg")
+//            self.ivGoodPeople.image=UIImage(named: "noimage.jpg")
+            self.ivGoodPeople.isHidden=true
+            self.lbGoodPeople.isHidden=true
         }
     }
    
