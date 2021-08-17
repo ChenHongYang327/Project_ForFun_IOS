@@ -137,6 +137,9 @@ class ChatMsgListTVC: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy hh:mm:ss a"
         
+        //設定為英文
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         executeTask(url_server!, request) { data, responds, error in
