@@ -16,6 +16,7 @@ class PostListVC: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
